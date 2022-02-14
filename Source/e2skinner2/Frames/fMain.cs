@@ -46,6 +46,7 @@ namespace OpenSkinDesigner.Frames
             MiSetFallbackColor.BackColor = Properties.Settings.Default.FallbackColor;
             MiUseFullAttributlist.Checked = Properties.Settings.Default.useFullAttribList;
             MiAddUndefinedColors.Checked = Properties.Settings.Default.addUndefinedColor;
+            MiShowAttributList.Checked = Properties.Settings.Default.showAttributList;
             MiShowNotificationUnsafedChanges.Checked = Properties.Settings.Default.ShowChanges;
             MiShowNotificationUnsafedChangesEditor.Checked = Properties.Settings.Default.ShowChangesEditor;
             MiExperimentalDeleteMode.Checked = Properties.Settings.Default.ExperimentalDelete;
@@ -133,44 +134,69 @@ namespace OpenSkinDesigner.Frames
         }
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            bool ignoreEditor = false;
-            checkChangesEditor(ref ignoreEditor);
-            if (ignoreEditor == true)
+            bool result = CheckChangesEditorNew();
+            if (result==false)
             {
-                bool ignore = false;
-                checkChanges(ref ignore);
-                if (ignore == true)
-                {
-                    fOpen ftmp = new fOpen();
-                    //ftmp.setup(pXmlHandler);
-                    ftmp.ShowDialog();
-                    if (ftmp.Status == fOpen.eStatus.OK)
-                    {
-                        cProperties.setProperty("path_skin_xml", ftmp.SkinName + "/skin.xml");
-                        open(ftmp.SkinName);
-                    }
-
-                    pQueue.clear();
-                }
+                return;
             }
             else
             {
-                bool ignore = false;
-                checkChanges(ref ignore);
-                if (ignore == true)
+                result = CheckChangesNew();
+                if (result == false)
                 {
-                    fOpen ftmp = new fOpen();
-                    //ftmp.setup(pXmlHandler);
-                    ftmp.ShowDialog();
-                    if (ftmp.Status == fOpen.eStatus.OK)
-                    {
-                        cProperties.setProperty("path_skin_xml", ftmp.SkinName + "/skin.xml");
-                        open(ftmp.SkinName);
-                    }
-
-                    pQueue.clear();
+                    return;
                 }
+               
             }
+            fOpen ftmp = new fOpen();
+            //ftmp.setup(pXmlHandler);
+            ftmp.ShowDialog();
+            if (ftmp.Status == fOpen.eStatus.OK)
+            {
+                cProperties.setProperty("path_skin_xml", ftmp.SkinName + "/skin.xml");
+                open(ftmp.SkinName);
+                TreeNode treeNode = treeView1.Nodes[0];
+                treeView1.SelectedNode = treeNode;
+            }
+            pQueue.clear();
+                       
+        }
+        private bool CheckChangesEditorNew()
+        {
+            if (MyGlobaleVariables.UnsafedChangesEditor == false || Properties.Settings.Default.ShowChangesEditor == false)
+            {
+                return true;
+            }
+            else
+            {
+                DialogResult dialog = new DialogResult();
+                dialog = MessageBox.Show(GetTranslation("You have made changes in the editor. Do you want to continue anyway?"), GetTranslation("Continue"), MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dialog == DialogResult.Yes)
+                {
+                    return true;
+                }
+                else
+                    return false;
+            }
+        }
+        private bool CheckChangesNew()
+        {
+            if (MyGlobaleVariables.UnsafedChanges == false || Properties.Settings.Default.ShowChanges == false)
+            {
+                return true;
+            }
+            else
+            {
+                DialogResult dialog = new DialogResult();
+                dialog = MessageBox.Show(GetTranslation("You have unsafed changes. Do you want to continue anyway?"), GetTranslation("Continue"), MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dialog == DialogResult.Yes)
+                {
+                    return true;
+                }
+                else
+                    return false;
+            }
+
         }
         private void fillImageList()
         {
@@ -872,46 +898,6 @@ namespace OpenSkinDesigner.Frames
         {
             openToolStripMenuItem_Click(sender, e);
         }
-        private bool checkChanges(ref bool ignore)
-        {
-            if (MyGlobaleVariables.UnsafedChanges == false || Properties.Settings.Default.ShowChanges == false)
-            {
-                ignore = true;
-                return true;
-            }
-            else
-            {
-                DialogResult dialog = new DialogResult();
-                dialog = MessageBox.Show(GetTranslation("You have unsafed changes. Do you want to continue anyway?"), GetTranslation("Continue"), MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (dialog == DialogResult.Yes)
-                {
-                    ignore = true;
-                    return true;
-                }
-                else
-                    return false;
-            }
-        }
-        private bool checkChangesEditor(ref bool ignore)
-        {
-            if (MyGlobaleVariables.UnsafedChangesEditor == false || Properties.Settings.Default.ShowChangesEditor == false)
-            {
-                ignore = true;
-                return true;
-            }
-            else
-            {
-                DialogResult dialog = new DialogResult();
-                dialog = MessageBox.Show(GetTranslation("You have made changes in the editor. Do you want to continue anyway?"), GetTranslation("Continue"), MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (dialog == DialogResult.Yes)
-                {
-                    ignore = true;
-                    return true;
-                }
-                else
-                    return false;
-            }
-        }
         private void windowStylesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             fWindowstyle ftmp = new fWindowstyle();
@@ -920,26 +906,24 @@ namespace OpenSkinDesigner.Frames
         }
         private void fMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            bool ignoreEditor = false;
-            checkChangesEditor(ref ignoreEditor);
-            if (ignoreEditor == true)
+            bool result = CheckChangesEditorNew();
+            if (result == false)
             {
-                bool ignore = false;
-                checkChanges(ref ignore);
-                if (ignore == true)
-                    cProperties.saveFile();
-                else
-                    e.Cancel = true;
+                e.Cancel = true;
+                return;
             }
             else
             {
-                bool ignore = false;
-                checkChanges(ref ignore);
-                if (ignore == true)
-                    cProperties.saveFile();
-                else
+                result = CheckChangesNew();
+                if (result == false)
+                {
                     e.Cancel = true;
+                    return;
+                }
+
             }
+            cProperties.saveFile();
+              
         }
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1434,22 +1418,21 @@ namespace OpenSkinDesigner.Frames
         }
         private void MiClose_Click(object sender, EventArgs e)
         {
-            bool ignoreEditor = false;
-            checkChangesEditor(ref ignoreEditor);
-            if (ignoreEditor == true)
+            bool result = CheckChangesEditorNew();
+            if (result == false)
             {
-                bool ignore = false;
-                checkChanges(ref ignore);
-                if (ignore == true)
-                    close();
+                return;
             }
             else
             {
-                bool ignore = false;
-                checkChanges(ref ignore);
-                if (ignore == true)
-                    close();
+                result = CheckChangesNew();
+                if (result == false)
+                {
+                    return;
+                }
+
             }
+            close();
         }
 
         private Int32 _StartX = 0;
@@ -1818,6 +1801,7 @@ namespace OpenSkinDesigner.Frames
                     sAttribute subattr = (sAttribute)propertyGrid1.SelectedObject;
                     pDesigner.redrawFog((int)subattr.pAbsolutX, (int)subattr.pAbsolutY, (int)subattr.pWidth, (int)subattr.pHeight);
                     pictureBox1.Invalidate();
+                    MyGlobaleVariables.UnsafedChanges = true;
                 }
 
 
@@ -2188,9 +2172,16 @@ namespace OpenSkinDesigner.Frames
         {
             ScintillaNET.Scintilla txt = (ScintillaNET.Scintilla)sender;
             if (e.Ch == '<')
-                showElementsList(txt);
+            {
+                if (Properties.Settings.Default.showAttributList == true)
+                    showElementsList(txt);
+            } 
             else if (e.Ch == ' ')
-                showAttrList(txt);
+            {
+                if (Properties.Settings.Default.showAttributList == true)
+                        showAttrList(txt);
+            }
+                    
             MyGlobaleVariables.UnsafedChangesEditor = true;
         }
         private void showAttrList(ScintillaNET.Scintilla txt)
@@ -2373,12 +2364,23 @@ namespace OpenSkinDesigner.Frames
         {
             if (MyGlobaleVariables.UnsafedChangesEditor == true)
             {
-                bool ignore = false;
-                checkChangesEditor(ref ignore);
-                if (ignore == false)
+                bool result = CheckChangesEditorNew();
+                if (result == false)
+                {
                     e.Cancel = true;
+                    return;
+                }
                 else
-                    MyGlobaleVariables.UnsafedChangesEditor = false;
+                {
+                    result = CheckChangesNew();
+                    if (result == false)
+                    {
+                        e.Cancel = true;
+                        return;
+                    }
+
+                }
+                MyGlobaleVariables.UnsafedChangesEditor = false;
             }
         }
         private void UseCustomLanguage()
@@ -2413,6 +2415,7 @@ namespace OpenSkinDesigner.Frames
             MiAddUndefinedColors.Text = GetTranslation("Add undefined color with '#' instead of 'un'");
             MiSetFallbackColor.Text = GetTranslation("Set 'Fallback'-Color");
             MiUseFullAttributlist.Text = GetTranslation("Use full attribut-list");
+            MiShowAttributList.Text = GetTranslation("Show attribut-list");
             MiLanguage.Text = GetTranslation("Language");
             MiShowNotificationUnsafedChanges.Text = GetTranslation("Notification of unsaved changes");
             MiShowNotificationUnsafedChangesEditor.Text = GetTranslation("Notification of unsaved changes in editor");
@@ -2602,6 +2605,12 @@ namespace OpenSkinDesigner.Frames
         private void MiDontReplaceColors_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default.DontReplaceColors = MiDontReplaceColors.Checked;
+            Properties.Settings.Default.Save();
+        }
+
+        private void MiShowAttributList_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.showAttributList = MiShowAttributList.Checked;
             Properties.Settings.Default.Save();
         }
 
