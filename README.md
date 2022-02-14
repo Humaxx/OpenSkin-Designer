@@ -202,3 +202,8 @@ Support for QHD (WQHD) and 4K UHD (Ultra HD)
 ### 3.2.6.0 by Humax
 * Undo application termination if a '.svg' graphic is used in the 'borderset's
 * If '.svg' graphic is used, the application searches for a corresponding '.png' graphic'
+### 3.2.6.1 by Humax
+* Added an option to hide attribut-list in code-editor
+* Updated language-files
+* After opening the skin, the main node is displayed in the code editor
+* Bugfix: Notification about unsafed changes, hasn't work in every case

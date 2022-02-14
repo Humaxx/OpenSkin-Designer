@@ -172,7 +172,7 @@ namespace OpenSkinDesigner.Frames
                 "- Bugfix: Now also a notification is shown, if colors are changed" + Environment.NewLine +
                 "- Add options to show notifications about unsafed changes" + Environment.NewLine + Environment.NewLine +
                 "v3.2.4.9 by Humax" + Environment.NewLine +
-                "- Using 'delete'-key to delete select element" + Environment.NewLine + Environment.NewLine +
+                "- Using 'delete'-key to delete selected element" + Environment.NewLine + Environment.NewLine +
                 "v3.2.5.0 by Humax" + Environment.NewLine +
                 "- Bugfix: Dont delete root-node" + Environment.NewLine +
                 "- Bugfix: 'Color-Dialog': changed 'Change' - button to 'Rename' - button" + Environment.NewLine +
@@ -205,9 +205,14 @@ namespace OpenSkinDesigner.Frames
                  "v3.2.5.9 by Humax" + Environment.NewLine +
                  "- Fixed borderset - bug" + Environment.NewLine +
                  "- Application will be terminated if a '.svg' graphic is used in the 'borderset's" + Environment.NewLine + Environment.NewLine +
-                 "v3.2.6.0 by Humax" + Environment.NewLine +
+                  "v3.2.6.0 by Humax" + Environment.NewLine +
                  "- Undo application termination if a '.svg' graphic is used in the 'borderset's" + Environment.NewLine +
-                 "- If '.svg' graphic is used, the application searches for a corresponding '.png' graphic";
+                 "- If '.svg' graphic is used, the application searches for a corresponding '.png' graphic" + Environment.NewLine + Environment.NewLine +
+                 "v3.2.6.1 by Humax" + Environment.NewLine +
+                 "- Added an option to hide attribut-list in code-editor" + Environment.NewLine +
+                 "- Updated language-files" + Environment.NewLine +
+                 "- After opening the skin, the main node is displayed in the code editor" + Environment.NewLine +
+                 "- Bugfix: Notification about unsafed changes, hasn't work in every case";
 
         }
 
