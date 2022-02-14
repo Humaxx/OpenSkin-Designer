@@ -172,3 +172,4 @@ The second definition will be deleted!: Die zweite definierte Farbe wird gelösc
 Linewrapping: Zeilenumbruch
 Dont replace colors beginning with '#': Farben die mit '#' beginnen nicht durch die definierte Farbe ersetzen
 An invalid colour was specified!: Es wurde eine ungültuge Farbe angegeben!
+Show attribut-list: Attribut-Liste anzeigen
