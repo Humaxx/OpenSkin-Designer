@@ -66,6 +66,7 @@ namespace OpenSkinDesigner.Frames
             this.MiLanguage = new System.Windows.Forms.ToolStripMenuItem();
             this.MiAddUndefinedColors = new System.Windows.Forms.ToolStripMenuItem();
             this.MiDontReplaceColors = new System.Windows.Forms.ToolStripMenuItem();
+            this.MiShowAttributList = new System.Windows.Forms.ToolStripMenuItem();
             this.MiUseFullAttributlist = new System.Windows.Forms.ToolStripMenuItem();
             this.MiShowNotificationUnsafedChanges = new System.Windows.Forms.ToolStripMenuItem();
             this.MiShowNotificationUnsafedChangesEditor = new System.Windows.Forms.ToolStripMenuItem();
@@ -404,6 +405,7 @@ namespace OpenSkinDesigner.Frames
             this.MiLanguage,
             this.MiAddUndefinedColors,
             this.MiDontReplaceColors,
+            this.MiShowAttributList,
             this.MiUseFullAttributlist,
             this.MiShowNotificationUnsafedChanges,
             this.MiShowNotificationUnsafedChangesEditor,
@@ -506,6 +508,14 @@ namespace OpenSkinDesigner.Frames
             this.MiDontReplaceColors.Size = new System.Drawing.Size(292, 22);
             this.MiDontReplaceColors.Text = "Dont replace colors beginning with \'#\'";
             this.MiDontReplaceColors.Click += new System.EventHandler(this.MiDontReplaceColors_Click);
+            // 
+            // MiShowAttributList
+            // 
+            this.MiShowAttributList.CheckOnClick = true;
+            this.MiShowAttributList.Name = "MiShowAttributList";
+            this.MiShowAttributList.Size = new System.Drawing.Size(292, 22);
+            this.MiShowAttributList.Text = "Show attribut-list";
+            this.MiShowAttributList.Click += new System.EventHandler(this.MiShowAttributList_Click);
             // 
             // MiUseFullAttributlist
             // 
@@ -1666,5 +1676,6 @@ namespace OpenSkinDesigner.Frames
         private System.Windows.Forms.ToolStripMenuItem MiExperimentalDeleteMode;
         private System.Windows.Forms.ToolStripMenuItem MiLinewrapping;
         private System.Windows.Forms.ToolStripMenuItem MiDontReplaceColors;
+        private System.Windows.Forms.ToolStripMenuItem MiShowAttributList;
     }
 }
