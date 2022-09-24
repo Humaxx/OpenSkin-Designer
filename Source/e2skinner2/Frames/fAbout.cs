@@ -212,8 +212,9 @@ namespace OpenSkinDesigner.Frames
                  "- Added an option to hide attribut-list in code-editor" + Environment.NewLine +
                  "- Updated language-files" + Environment.NewLine +
                  "- After opening the skin, the main node is displayed in the code editor" + Environment.NewLine +
-                 "- Bugfix: Notification about unsafed changes, hasn't work in every case";
-
+                 "- Bugfix: Notification about unsafed changes, hasn't work in every case" + Environment.NewLine + Environment.NewLine +
+                 "v3.2.6.2 by Humax" + Environment.NewLine + 
+                 "- Fixed the display of the error display of the code view";
         }
 
         private void SetLanguage()
