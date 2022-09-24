@@ -1404,7 +1404,12 @@ namespace OpenSkinDesigner.Frames
                 }
                 catch (Exception ex)
                 {
-                    TslStatus.Text = GetTranslation("Error:") + " " + ex.Message;
+                    string fixNewLine = ex.Message;
+                    if (fixNewLine.Contains("\r"))
+                    {
+                        fixNewLine = fixNewLine.Replace("\r", "Return");
+                    }
+                    TslStatus.Text = GetTranslation("Error:") + " " + fixNewLine;
                 }
             }
             else
