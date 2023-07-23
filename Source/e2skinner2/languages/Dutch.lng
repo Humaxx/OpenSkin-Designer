@@ -1,0 +1,175 @@
+﻿Language: Taal.
+File: Files.
+New: Nieuw.
+Open: Open.
+Save: Opslaan.
+Save as: Opslaan Als.
+Close: Sluiten.
+Exit: Beindigen.
+Edit: Bewerken.
+Undo: Terug.
+Redo: Opnieuw.
+Element: Items.
+Add Label: Label toevoegen.
+Add Pixmap: Pixmap toevoegen.
+Add Widget: Widget toevoegen.
+Add Panel: Panel Toevoegen
+Delete selected: Verwijder Item.
+Settings: Instellingen.
+Resolution: Oplossing.
+Colors: Kleuren.
+Fonts: Lettertypen.
+WindowStyles: WindowStyles.
+Reload converter.xml: converter.xml Opnieuw laden.
+Reload previewText.xml: previewText.xml Opnieuw laden.
+Preferences: Voorkeuren.
+Add undefined color with '#' instead of 'un': Voeg ongedefinieerde kleur toe met '#' in plaats van 'un'.
+Use full attribut-list: Volledige attributenlijst gebruiken.
+Set 'Fallback'-Color: 'Fallback'-Verander kleur.
+Search...: Zoeken...
+Designer: Ontwerp
+Code: Code
+Marker: Marker
+Show all: Alles
+Show screens: Scherm Weergeven
+Show labels: Lebels Weergeven
+Show pixmaps: Pixmaps Weergeven
+Show panels: Panels Weergeven
+Show widgets: Widgets Weergeven
+Alpha: Alpha
+Fading: Verbergen
+Conditional widgets: Voorwaardelijk Widgets
+Random: Toevallig
+Default: Specificatie
+None: Geen
+Capturing Keyboard Events: Toetsenbordgebeurtenissen vastleggen
+Cancel: Afbreken
+OK: OK
+Open: Openen
+Edit Root: Root Bewerken
+Add Screen: Screen Weergeven
+Delete Element: Item Verwijderen
+All: Alle
+No Errors.: Geen Fouten.
+Error:: Fout:
+No element selected: Geen item geselecteerd
+Sync: Synchroniseren
+Fold all: Alles inklappen
+Unfold all: Alles uitvouwen
+Fold all elements: Alle Items inklappen
+Unfold all elements: Alle Items uitvouwen
+Color settings: Kleur Instellingen
+Edit colors: Kleur Bewerken
+Name: Naam
+Value: Waarde
+Color: Kleur
+Add Element: Item Toevoegen
+current: Aktueel
+current date: Aktuele Datum
+current time: Aktuele Tijd
+colored buttons: Gekleurde Knoppen
+Remove: Vewijderen
+Change: Veranderen
+Red: Rood
+Green: Groen
+Blue: Blauw
+Palette: Palet
+Hints: Tips
+(in decimal, min=0, max=255): (in decimaal, min=0, max=255)
+(in hexadecimal): (in hexadecimale notatie)
+The color in the 'listview' can only be displayed without an alpha channel,: De kleur in de 'Lijstweergave' kan alleen worden weergegeven zonder alfakanaal,
+i.e. the color representation is only displayed correctly (with transparency) in the 'picturebox' in the left lower corner!: d.w.z. de kleurenweergave wordt alleen correct weergegeven (met transparantie) in de 'Picturebox' in de linkerbenedenhoek!
+Alpha = transparency! I.e. the more alpha the more transparent the color becomes.: Alfa = transparantie! D.w.z. hoe meer alfa, hoe transparanter de kleur wordt.
+Information: Informatie
+The name of the color cannot be empty!: De naam van de kleur mag niet leeg zijn!
+The value of the color cannot be empty!: De waarde van de kleur mag niet leeg zijn!
+This color already exists!: Deze kleur bestaat al!
+You can update this color by pressing the 'Change'ng-Button.: U kunt deze kleur bijwerken door op de knop 'Wijzigen' te drukken.
+Invalid format for value hexadecimal value!: Geldig formaat voor hexadecimale waarde! 
+To do this, you must select a color in the listview!: Hiervoor moet u een kleur selecteren in de lijstweergave!
+Invalid format for value alpha!: Ongeldig formaat voor waarde alpha!
+Invalid format for value red!: Ongeldig formaat voor waarde rood!
+Invalid format for value blue!: Ongeldig formaat voor waarde blauw!
+Invalid format for value green!: Ongeldig formaat voor waarde groen!
+You've made some changes, which will only take effect (show the color in the treeview),: U heeft enkele wijzigingen aangebracht die van kracht worden (de kleur wordt weergegeven in de boomstructuur)
+after you have saved and reloaded the skin!: Nadat je de skin hebt opgeslagen en opnieuw hebt geladen!
+Do you want to save and reload the skin now?: Wil je de skin nu opslaan en opnieuw laden? 
+Remember, however, that this will also save all previous changes you made!: Maar onthoud dat hiermee ook eventuele eerdere wijzigingen die u hebt aangebracht, worden opgeslagen!
+Save and reload: Opslaan en opnieuw laden
+Information about: Informatie over
+Path: Pad
+Scale: Skaling
+Size: Grote
+Replacement: Verplaatsen
+isAlias: Is Alias
+Filename: Filenaam
+Preview fonts: Voorbeeld lettertypen bekijken
+Usage: Gebruiken
+Font: Het Lettertype
+This is a preview-text to show the font: Dit is een voorbeeldtekst om het lettertype te tonen
+Test-String SKY 1234567890 !#?ÜÖÄ$%/(): Testreeks SKY 1234567890 !#?ÜÖÄ$%/()
+To be able to show this preview, the font size: Om dit voorbeeld weer te kunnen geven, is de lettergrootte vergroot
+was temporarily changed from 0 to 20: Tijdelijk gewijzigd van 0 naar 20
+Font painting failed!: Het lettertype schilderen is mislukt!
+The font: Het Lettertype
+was not found.: Werd niet gevonden.
+Probably this is a default font on the image of your box: Hoogstwaarschijnlijk is dit een standaardlettertype in uw box.
+Warning: Waarschuwing.
+This function is not sufficiently tested and seems unstable. It is not recommended to use it!: Deze functie is niet goed getest en lijkt onstabiel te zijn. Het wordt niet aanbevolen om ze te gebruiken! 
+Note:: Aanmerking
+The skin will be automatically saved if you want to continue!: Als je doorgaat, wordt de skin automatisch opgeslagen! 
+It is recommend to create a backup of your skin first!: Het wordt aanbevolen om eerst een back-up van uw Skin te maken!
+Press 'Cancel' to abort.: Druk op 'Annuleren' om te annuleren..
+Resolution settings: Resolutie instellingen.
+Choose the resolution: Resolutie kiezen.
+Resolution: Resolutie.
+Changing the Resolution will result in rescaling of the skin.: Als u de resolutie wijzigt, wordt de Skins opnieuw geschaald.
+PNG not found: PNG niet gevonden.
+More than one color defined with name: Meer dan één kleur met deze naam is gedefinieerd in de Skin.
+The second definition will be deleted if you save manually.: De tweede gedefinieerde kleur wordt verwijderd als u handmatig opslaat.
+Until you save, the second definition is still shown in TreeView!: Totdat u opslaat, wordt de tweede kleur nog steeds weergegeven in de boomstructuur!
+Do you want to save and reload the skin?: Wil je de skin opslaan en opnieuw laden?
+Error while parsing color table: Fout bij parseren van kleurentabel.
+Error while parsing font table: Fout bij het parseren van lettertypetabel.
+More than one font (alias) defined with name: Meer dan één lettertype (alias) gedefinieerd op naam.
+More than one font defined with name: Er is meer dan één lettertype met deze naam gedefinieerd in de skin.
+Show this message again?: Dit bericht nogmaals weergeven?
+is not defined or exist!: Is niet gedefinieerd of bestaat niet!
+Using 'fallback font': Het 'fallback font' wordt gebruikt!
+Using 'fallback color': Het 'fallback kleur' wordt gebruikt!
+Error: Foutmelding
+Open project: Project openen
+No skin selected: Geen Skin geselecteerd.
+Open: Openen
+Window-Style settings: Instellingen WindowStyles
+Style: Stijl.
+Preview: Voorbeeld.
+Table: Tabel.
+View: Zien.
+Key: Key.
+Result: Resultaat
+No text to browse!: Er is geen tekst om te zoeken.
+Continue: Voortgang.
+You have unsafed changes. Do you want to continue anyway?: U heeft uw wijzigingen nog niet opgeslagen. Wil je toch doorgaan?
+You have made changes in the editor. Do you want to continue anyway?: U heeft uw wijzigingen nog niet opgeslagen in de code-editor. Wil je toch doorgaan?
+Add: Optellen bij
+OpenSkinDesigner has searched in several places for the font: OpenSkinDesigner heeft in verschillende mappen gezocht naar het volgende lettertype:
+Unfortunatly the search was not successful!: Helaas is de zoektocht niet gelukt.
+Search locations: Gezocht mappen.
+It uses 'lcd.tff' instead.: In plaats daarvan wordt 'lcd.ttf' gebruikt.
+Error while loading fonts: Fout bij het lezen van lettertypen.
+OpenSkinDesigner has tried to open the font: OpenSkinDesigner heeft geprobeerd het volgende lettertype te openen.
+Unfortunatly this was not successful!: Dit is helaas niet gelukt!
+Either the font type is not supported by OpenSkinDesigner: Ofwel wordt het lettertype niet ondersteund door de OpenSkinDesigner.
+or it's not a valid font.: Of het is geen geldig lettertype.
+Location: Locatie.
+Notification of unsaved changes: Melding van niet-opgeslagen wijzigingen.
+Notification of unsaved changes in editor: Melding van niet-opgeslagen wijzigingen in code-editor
+Deleting main node is not allowed!: Het hoofdknooppunt mag niet worden verwijderd!
+Experimental delete-mode: Experimentele 'wismodus'
+Rename: Hernoemen.
+The second definition will be deleted!: De tweede gedefinieerde kleur wordt verwijderd!
+Linewrapping: Nieuwe Lijn
+Dont replace colors beginning with '#': Vervang kleuren die beginnen met '#' niet door de gedefinieerde kleur.
+An invalid colour was specified!: Er is een ongeldige kleur opgegeven!
+Show attribut-list: Toon attributenlijst.
