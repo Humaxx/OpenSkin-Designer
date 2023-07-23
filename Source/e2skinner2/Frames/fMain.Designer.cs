@@ -1005,7 +1005,7 @@ namespace OpenSkinDesigner.Frames
             this.textBoxEditor2.Styles.LastPredefined.FontName = "Verdana\0\0\0\0\0\0\0\0\0\0\0\0\0";
             this.textBoxEditor2.Styles.LineNumber.FontName = "Verdana\0\0\0\0\0\0\0\0\0\0\0\0\0";
             this.textBoxEditor2.Styles.Max.FontName = "Verdana\0\0\0\0\0\0\0\0\0\0\0\0\0";
-            this.textBoxEditor2.TabIndex = 2;
+            this.textBoxEditor2.TabIndex = 4;
             this.textBoxEditor2.CharAdded += new System.EventHandler<ScintillaNET.CharAddedEventArgs>(this.autoComplete);
             this.textBoxEditor2.Click += new System.EventHandler(this.textBoxEditor2_Click);
             // 
