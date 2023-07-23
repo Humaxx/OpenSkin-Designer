@@ -2440,7 +2440,7 @@ namespace OpenSkinDesigner.Frames
             tbxSearchCode.Text = GetTranslation("Search...");
             tabControl1.TabPages[0].Text = GetTranslation("Designer");
             tabControl1.TabPages[1].Text = GetTranslation("Code");
-            btnSkinned.Text = GetTranslation("All");
+            btnSkinned.Text = GetTranslation("Show all");
             TslMarker.Text = GetTranslation("Marker");
             btnSkinned_Alpha.Text = GetTranslation("Alpha");
             btnFading.Text = GetTranslation("Fading");
