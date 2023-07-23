@@ -272,14 +272,20 @@ namespace OpenSkinDesigner.Structures
 
             public String getText(String Source)
             {
-                if (this.type == this.NAME)
-                    return (String)((Hashtable)pTable[Source])["service_name"];
-                else if (this.type == this.PROVIDER)
-                    return (String)((Hashtable)pTable[Source])["provider"];
-                else if (this.type == this.REFERENCE)
-                    return (String)((Hashtable)pTable[Source])["reference"];
+                if (pTable.Contains(Source))
+                {
+                    if (this.type == this.NAME)
+                        return (String)((Hashtable)pTable[Source])["service_name"];
+                    else if (this.type == this.PROVIDER)
+                        return (String)((Hashtable)pTable[Source])["provider"];
+                    else if (this.type == this.REFERENCE)
+                        return (String)((Hashtable)pTable[Source])["reference"];
+                    else
+                        return "???";
+                }
                 else
-                    return "???";
+                    return "NoConverterFound";
+                
             }
         }
 
@@ -306,18 +312,26 @@ namespace OpenSkinDesigner.Structures
 
             public int getTime(String Source)
             {
-                if (this.type == this.STARTTIME)
-                    return (int)((Hashtable)pTable[Source])["event_starttime"];
-                else if (this.type == this.ENDTIME)
-                    return (int)((Hashtable)pTable[Source])["event_endtime"];
-                else if (this.type == this.DURATION)
-                    return (int)((Hashtable)pTable[Source])["event_duration"];
+                if (pTable.Contains(Source))
+                {
+                    if (this.type == this.STARTTIME)
+                        return (int)((Hashtable)pTable[Source])["event_starttime"];
+                    else if (this.type == this.ENDTIME)
+                        return (int)((Hashtable)pTable[Source])["event_endtime"];
+                    else if (this.type == this.DURATION)
+                        return (int)((Hashtable)pTable[Source])["event_duration"];
+                    else
+                        return -1;
+                }
                 else
-                    return -1;
+                    return -10;
+                
             }
 
             public String getText(String Source)
             {
+                if (pTable.Contains(Source))
+                {
                 if (this.type == this.STARTTIME)
                     return ((Hashtable)pTable[Source])["event_starttime"].ToString();
                 else if (this.type == this.ENDTIME)
@@ -326,6 +340,10 @@ namespace OpenSkinDesigner.Structures
                     return ((Hashtable)pTable[Source])["event_duration"].ToString();
                 else
                     return "???";
+                }
+                else
+                    return "NoConverterFound";
+                
             }
         }
 
@@ -646,18 +664,24 @@ namespace OpenSkinDesigner.Structures
 
             public String getText(String Source)
             {
-                if (this.type == this.NAME)
-                    return (String)((Hashtable)pTable[Source])["service_name"];
-                else if (this.type == this.SHORT_DESCRIPTION)
-                    return (String)((Hashtable)pTable[Source])["short_description"];
-                else if (this.type == this.EXTENDED_DESCRIPTION)
-                    return (String)((Hashtable)pTable[Source])["extended_description"];
-                else if (this.type == this.FULL_DESCRIPTION)
-                    return (String)((Hashtable)pTable[Source])["full_description"];
-                else if (this.type == this.ID)
-                    return (String)((Hashtable)pTable[Source])["id"];
+                if (pTable.Contains(Source))
+                {
+                    if (this.type == this.NAME)
+                        return (String)((Hashtable)pTable[Source])["service_name"];
+                    else if (this.type == this.SHORT_DESCRIPTION)
+                        return (String)((Hashtable)pTable[Source])["short_description"];
+                    else if (this.type == this.EXTENDED_DESCRIPTION)
+                        return (String)((Hashtable)pTable[Source])["extended_description"];
+                    else if (this.type == this.FULL_DESCRIPTION)
+                        return (String)((Hashtable)pTable[Source])["full_description"];
+                    else if (this.type == this.ID)
+                        return (String)((Hashtable)pTable[Source])["id"];
+                    else
+                        return "???";
+                }
                 else
-                    return "???";
+                    return "NoConverterFound";
+                                
             }
         }
 
