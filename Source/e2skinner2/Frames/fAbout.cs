@@ -213,8 +213,15 @@ namespace OpenSkinDesigner.Frames
                  "- Updated language-files" + Environment.NewLine +
                  "- After opening the skin, the main node is displayed in the code editor" + Environment.NewLine +
                  "- Bugfix: Notification about unsafed changes, hasn't work in every case" + Environment.NewLine + Environment.NewLine +
-                 "v3.2.6.2 by Humax" + Environment.NewLine + 
-                 "- Fixed the display of the error display of the code view";
+                 "v3.2.6.2 by Humax" + Environment.NewLine +
+                 "- Fixed the display of the error message" + Environment.NewLine + Environment.NewLine +
+                 "v3.2.6.3 by Humax" + Environment.NewLine +
+                 "- Fixed typos" + Environment.NewLine +
+                 "- Added dutch translation --> thanks to 'lk1zhm'" + Environment.NewLine +
+                 "- Added new 'Converter.xml and 'simpleConverter.xml'" + Environment.NewLine +
+                 "- Fixed some unhandled Exception when no converter was found";
+;
+
         }
 
         private void SetLanguage()

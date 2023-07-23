@@ -208,4 +208,9 @@ Support for QHD (WQHD) and 4K UHD (Ultra HD)
 * After opening the skin, the main node is displayed in the code editor
 * Bugfix: Notification about unsafed changes, hasn't work in every case
 ### 3.2.6.2 by Humax
-* Fixed the display of the error display of the code view
+* Fixed the display of the error message
+### 3.2.6.3 by Humax
+* Fixed typos
+* Added dutch translation --> thanks to 'lk1zhm'
+* Added new 'Converter.xml and 'simpleConverter.xml'
+* Fixed some unhandled Exception when no converter was found
