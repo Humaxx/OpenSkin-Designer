@@ -553,7 +553,11 @@ namespace OpenSkinDesigner.Structures
                 foreach (XmlNode nodeConverter in node.ChildNodes)
                 {
                     if (nodeConverter.Attributes != null)
-                    {
+                    { 
+                        if (nodeConverter.Name.ToLower().Contains("template"))
+                        {
+                            return;
+                        }
                         String type = nodeConverter.Attributes["type"].Value;
                         String parameter = nodeConverter.InnerText;
 

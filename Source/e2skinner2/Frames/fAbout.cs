@@ -219,7 +219,9 @@ namespace OpenSkinDesigner.Frames
                  "- Fixed typos" + Environment.NewLine +
                  "- Added dutch translation --> thanks to 'lk1zhm'" + Environment.NewLine +
                  "- Added new 'Converter.xml and 'simpleConverter.xml'" + Environment.NewLine +
-                 "- Fixed some unhandled Exception when no converter was found";
+                 "- Fixed some unhandled Exception when no converter was found" + Environment.NewLine + Environment.NewLine +
+                 "v3.2.6.4 by Humax" + Environment.NewLine +
+                 "- Fixed unhandeld Exception (ignoring 'templates')";
 ;
 
         }

@@ -214,3 +214,5 @@ Support for QHD (WQHD) and 4K UHD (Ultra HD)
 * Added dutch translation --> thanks to 'lk1zhm'
 * Added new 'Converter.xml and 'simpleConverter.xml'
 * Fixed some unhandled Exception when no converter was found
+### 3.2.6.4 by Humax
+* Fixed unhandeld Exception (ignoring 'templates')
