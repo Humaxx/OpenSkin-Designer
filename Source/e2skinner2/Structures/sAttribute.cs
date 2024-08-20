@@ -492,11 +492,11 @@ namespace OpenSkinDesigner.Structures
                     n = parent;
                     coord = coord.Substring(1);
                 }
-                else if (coord.StartsWith("c"))
+                else if (coord.StartsWith("center"))
                 {
                     n = parent / 2;
-                    coord = coord.Substring(1);
-                }
+                    coord = coord.Replace("center", "");
+                }                
                 if (coord.Length != 0)
                 {
                     if (coord.EndsWith("%"))

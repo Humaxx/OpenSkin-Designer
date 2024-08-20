@@ -221,8 +221,10 @@ namespace OpenSkinDesigner.Frames
                  "- Added new 'Converter.xml and 'simpleConverter.xml'" + Environment.NewLine +
                  "- Fixed some unhandled Exception when no converter was found" + Environment.NewLine + Environment.NewLine +
                  "v3.2.6.4 by Humax" + Environment.NewLine +
-                 "- Fixed unhandeld Exception (ignoring 'templates')";
-;
+                 "- Fixed unhandled Exception (ignoring 'templates')" + Environment.NewLine + Environment.NewLine +
+                 "v3.2.6.5 by Humax" + Environment.NewLine +
+                 "- Fixed unhandled Exception (drawing without color, now using fallback color)";
+
 
         }
 

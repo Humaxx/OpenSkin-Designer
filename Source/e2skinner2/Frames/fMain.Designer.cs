@@ -1103,7 +1103,6 @@ namespace OpenSkinDesigner.Frames
             // 
             // tbxSearchCode
             // 
-            this.tbxSearchCode.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tbxSearchCode.Name = "tbxSearchCode";
             this.tbxSearchCode.Size = new System.Drawing.Size(150, 25);
             this.tbxSearchCode.Text = "Search...";

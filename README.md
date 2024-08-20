@@ -216,3 +216,5 @@ Support for QHD (WQHD) and 4K UHD (Ultra HD)
 * Fixed some unhandled Exception when no converter was found
 ### 3.2.6.4 by Humax
 * Fixed unhandeld Exception (ignoring 'templates')
+### v3.2.6.5 by Humax"
+* Drawing without color, now using fallback color";
