@@ -76,6 +76,11 @@ namespace OpenSkinDesigner.Frames
             pQueue = new cCommandQueue();
             pQueue.UndoPossibleEvent += new cCommandQueue.UndoRedoHandler(eventUndoPossible);
             pQueue.RedoPossibleEvent += new cCommandQueue.UndoRedoHandler(eventRedoPossible);
+
+			 // Logging aktivieren
+			Logger.SetLoggingEnabled(true);
+			// Logging deaktivieren
+			//Logger.SetLoggingEnabled(false);
         }
 
         private void AddCustomLanguages()
@@ -153,6 +158,8 @@ namespace OpenSkinDesigner.Frames
             ftmp.ShowDialog();
             if (ftmp.Status == fOpen.eStatus.OK)
             {
+				// Logging-Code aufrufen
+				Logger.LogMessage("fMain.cs -- hier wird die skin.xml geladen");
                 cProperties.setProperty("path_skin_xml", ftmp.SkinName + "/skin.xml");
                 open(ftmp.SkinName);
                 TreeNode treeNode = treeView1.Nodes[0];
@@ -248,7 +255,8 @@ namespace OpenSkinDesigner.Frames
         {
             // Close all open
             close();
-
+			// Logging-Code aufrufen
+			Logger.LogMessage("fMain.cs -- hier wird die skin.xml eingelesen in fillimagelist");
             trackBarZoom.Enabled = true; //MOD
             numericUpDownZoom.Enabled = true; //MOD
             cProperties.setProperty("path_skin", path);
@@ -728,7 +736,7 @@ namespace OpenSkinDesigner.Frames
             //if (treeView1.SelectedNode != null)
             {
                 cCommandQueue.cCommand cmd = new cCommandQueue.cCommand("PropertyGridChanged");
-
+                GridItem gI1 = propertyGrid1.SelectedGridItem;
                 cmd.Helper = (s as PropertyGrid).SelectedObject;
 
                 String label = e.ChangedItem.Label;
@@ -789,6 +797,7 @@ namespace OpenSkinDesigner.Frames
                     cmd.UndoEvent += new cCommandQueue.EventHandler(eventUndoPropertyGrid);
 
                     pQueue.addCmd(cmd);
+                    propertyGrid1.SelectedGridItem = gI1;
                 }
                 else
                     Console.WriteLine("Error in propertyGrid1_PropertyValueChanged #2");
@@ -2331,8 +2340,17 @@ namespace OpenSkinDesigner.Frames
                 words.Add("pixtype");
                 words.Add("plugin_pixmaps");
                 words.Add("colorEventProgressbarSelected");
+				words.Add("backgroundGradient");
+				words.Add("itemGradientSelected");
+				words.Add("scrollbarForegroundGradient");
+				words.Add("cornerRadius");
+				words.Add("scrollbarSliderBackgroundColor");
+				words.Add("scrollbarOffset");
+				words.Add("scrollbarMode");
+				
+				
             }
-
+				//Kitte888
             words.Sort();
             txt.AutoComplete.List = words;
             txt.AutoComplete.IsCaseSensitive = false;

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using OpenSkinDesigner.Logic;
 using System.Drawing;
+using System.Diagnostics;
 
 namespace OpenSkinDesigner.Structures
 {
@@ -21,8 +22,18 @@ namespace OpenSkinDesigner.Structures
         public override void paint(object sender, System.Windows.Forms.PaintEventArgs e)
         {
 
+            // Hole den Namen der aufrufenden Methode
+            string callerName = new StackTrace().GetFrame(1).GetMethod().Name;
+            // Log-Nachricht erstellen
+            string logMessage = $"============= sGraphicWidget - paint () wurde von {callerName} aufgerufen .";
+            // Loggen
+            Logger.LogMessage(logMessage);
+            // Weiter mit der eigentlichen Funktion
+
+
             if (cProperties.getPropertyBool("skinned_widget"))
             {
+                Logger.LogMessage("============= sGraphicWidget - ruft cGraphicRectangel.cs auf 38  = 4 ");
                 new sGraphicRectangel(pAttr, false, (float)1.0, new sColor(Color.Yellow)).paint(sender, e);
             }
 
@@ -62,8 +73,11 @@ namespace OpenSkinDesigner.Structures
             }
 
             if (pAttr.pBorder)
-                new sGraphicRectangel(pAttr, false, (float)pAttr.pBorderWidth, pAttr.pBorderColor).paint(sender, e);
 
+            {
+                Logger.LogMessage("============= sGraphicWidget - ruft cGraphicRectangel.cs auf 79  = 4 ");
+                new sGraphicRectangel(pAttr, false, (float)pAttr.pBorderWidth, pAttr.pBorderColor).paint(sender, e);
+            }
         }
 
         public void updateObject(sAttribute parent, sAttribute me)

@@ -223,9 +223,12 @@ namespace OpenSkinDesigner.Frames
                  "v3.2.6.4 by Humax" + Environment.NewLine +
                  "- Fixed unhandled Exception (ignoring 'templates')" + Environment.NewLine + Environment.NewLine +
                  "v3.2.6.5 by Humax" + Environment.NewLine +
-                 "- Fixed unhandled Exception (drawing without color, now using fallback color)";
-
-
+                 "- Fixed unhandled Exception (drawing without color, now using fallback color)" + Environment.NewLine + Environment.NewLine +
+                 "v3.2.6.6 by kitte888" + Environment.NewLine +
+                 "- Added some new attributes for eLabels like backgroundGradient, cornerRadius" + Environment.NewLine +
+                 "- Added some new attributes for render listBox like itemCornerRadius" + Environment.NewLine + Environment.NewLine +
+                 "v3.2.6.7 by Humax" + Environment.NewLine +
+                 "- Focus remains in the selected propertygrid";
         }
 
         private void SetLanguage()
@@ -312,5 +315,10 @@ namespace OpenSkinDesigner.Frames
             }
         }
         #endregion
+
+        private void fAbout_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

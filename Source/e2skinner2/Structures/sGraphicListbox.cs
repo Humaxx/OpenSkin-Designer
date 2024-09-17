@@ -5,11 +5,21 @@ using System.Text;
 using System.Drawing;
 using OpenSkinDesigner.Logic;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace OpenSkinDesigner.Structures
 {
     class sGraphicListbox : sGraphicElement
     {
+
+        // ############################################
+        private int scrollbarAbsolutX;
+        private int scrollbarAbsolutY;
+        private int scrollbarBreite;
+        private int scrollbarHeight;
+       
+        // ############################################
+
         //protected sAttributeListbox pAttr;
 
         public sGraphicListbox(sAttributeListbox attr)
@@ -18,8 +28,19 @@ namespace OpenSkinDesigner.Structures
             pAttr = attr;
         }
 
+        
+
         public override void paint(object sender, System.Windows.Forms.PaintEventArgs e)
         {
+            // Hole den Namen der aufrufenden Methode
+            string callerName = new StackTrace().GetFrame(1).GetMethod().Name;
+            // Log-Nachricht erstellen
+            string logMessage = $"============= sGraphicListbox - paint () wurde von {callerName} aufgerufen .";
+            // Loggen
+            Logger.LogMessage(logMessage);
+            // Weiter mit der eigentlichen Funktion
+
+  
             if (!pAttr.pTransparent)
             {
                 //Background
@@ -29,9 +50,17 @@ namespace OpenSkinDesigner.Structures
                 Int32 th = (Int32)pAttr.pHeight;
 
                 if (((sAttributeListbox)pAttr).pBackgroundPixmap != null)
+                {
+
                     new sGraphicImage(pAttr, ((sAttributeListbox)pAttr).pBackgroundPixmapName).paint(sender, e);
+                }
                 else
-                    new sGraphicRectangel((Int32)(tx > 0 ? tx : 0), (Int32)(ty > 0 ? ty : 0), (Int32)(tw > 0 ? tw : 0), (Int32)(th > 0 ? th : 0), true, (float)1.0, ((sAttributeListbox)pAttr).pListboxBackgroundColor).paint(sender, e);
+                {
+                    Logger.LogMessage("============= sGraphicListbox - ruft cGraphicRectangel.cs auf 53  = 7 ");
+                    new sGraphicRectangel((Int32)(tx > 0 ? tx : 0), (Int32)(ty > 0 ? ty : 0), (Int32)(tw > 0 ? tw : 0), (Int32)(th > 0 ? th : 0), true, (float)1.0, ((sAttributeListbox)pAttr).pListboxBackgroundColor)
+                        
+                        .paint(sender, e);
+                }
             }
 
             //BorderLayout
@@ -205,16 +234,154 @@ namespace OpenSkinDesigner.Structures
                     sColor background = ((sAttributeListbox)pAttr).pListboxSelectedBackgroundColor;
                     String entry = ((sAttributeListbox)pAttr).pPreviewEntries[0];
 
+                    // ----------------------------------- Item Selection malen Foreground -----------------------------------------------------
+
                     // Selection Pixmap
                     if (((sAttributeListbox)pAttr).pSelectionPixmapName != null)
+                    {
+
+                        Logger.LogMessage("============= sGraphicListbox - PixmapName - ruft cGraphicImage.cs auf 238  = 7 ");
                         new sGraphicImage(null, ((sAttributeListbox)pAttr).pSelectionPixmapName, pAttr.pAbsolutX, pAttr.pAbsolutY, pAttr.pWidth, ((sAttributeListbox)pAttr).pItemHeight).paint(sender, e);
+                    }
+
                     else
-                        new sGraphicRectangel(pAttr.pAbsolutX, pAttr.pAbsolutY, pAttr.pWidth, ((sAttributeListbox)pAttr).pItemHeight, true, 1.0F, ((sAttributeListbox)pAttr).pListboxSelectedBackgroundColor).paint(sender, e);
+                    {
+                        // ---------------------- wichtig wenn Pixmap gemalt hier kein background oder gradient mal , wird dann pixmap uebermalt ------------------------------------
+                        int meineBreite = pWidth - ((sAttributeListbox)pAttr).pscrollbarOffset - ((sAttributeListbox)pAttr).pscrollbarWidth;
+
+
+                        if (((sAttributeListbox)pAttr).pItemGradientSelected != null)
+                        {
+
+
+                            // hier noch die scrollbar abziehen , widht und offset plus 10 min 
+                            Logger.LogMessage("============= sGraphicListbox.cs - ItemGradientSelected ist vorhanden ");
+                            Logger.LogMessage("============= sGraphicListbox - Selection Gradient - ruft cGraphicRectangel.cs auf 251  = 5 mit Gradient ");
+                            new sGraphicRectangel(pAttr.pAbsolutX, pAttr.pAbsolutY, meineBreite, ((sAttributeListbox)pAttr).pItemHeight, ((sAttributeListbox)pAttr).pItemGradientSelected)
+                                .withCornerRadius(pAttr.pCornerRadius)
+                                .paint(sender, e);
+                        }
+                        else
+                        {
+                            Logger.LogMessage("============= sGraphicListbox - Selection Background - ruft cGraphicRectangel.cs auf 258  = 7 ");
+                            new sGraphicRectangel(pAttr.pAbsolutX, pAttr.pAbsolutY, meineBreite, ((sAttributeListbox)pAttr).pItemHeight, true, 1.0F, ((sAttributeListbox)pAttr).pListboxSelectedBackgroundColor)
+                                .withCornerRadius(pAttr.pCornerRadius)
+                                .paint(sender, e);
+                        }
+                    }
+                    // ---------------------------------------- Scrollbar -----------------------------------------------------------------------------
+                    if (((sAttributeListbox)pAttr).pScrollbarMode != cProperty.eScrollbarMode.showNever)
+                    {
+                        if (((sAttributeListbox)pAttr).pscrollbarSliderBackgroundColor != null)
+                        {
+                            // farbe vorhanden
+                        }
+                        else
+                        {
+                            ((sAttributeListbox)pAttr).pscrollbarSliderBackgroundColor = ((sAttributeListbox)pAttr).pListboxForegroundColor;
+
+                        }
+
+                        if (((sAttributeListbox)pAttr).pscrollbarWidth > 0)
+                        {
+                            // wert vorhanden
+                        }
+                        else
+                        {
+                            ((sAttributeListbox)pAttr).pscrollbarWidth = 10;
+
+                        }
+
+                        if (((sAttributeListbox)pAttr).pscrollbarOffset > 0)
+                        {
+                            // wert vorhanden
+                        }
+                        else
+                        {
+                            ((sAttributeListbox)pAttr).pscrollbarOffset = 10;
+
+                        }
+
+                        scrollbarAbsolutX = pAttr.pAbsolutX + pAttr.pWidth - ((sAttributeListbox)pAttr).pscrollbarWidth;
+                        scrollbarAbsolutY = pAttr.pAbsolutY + 10;
+                        scrollbarBreite = ((sAttributeListbox)pAttr).pscrollbarWidth;
+                        scrollbarHeight = pAttr.pHeight - 20;
+
+                        // ------------------------------- erst malen wir den Background --------------------------------
+                        if (pAttr.pTransparent)
+                        {
+                            Logger.LogMessage("============= sGraphicProgress - Transparent true - es wird nichts gemalt ");
+                            //new sGraphicRectangel().paint(sender, e);
+                        }
+                        else
+                        {
+                            Logger.LogMessage("============= sGraphicListbox - Srollbar - ruft cGraphicRectangel.cs auf 314  = 7 ");
+                            new sGraphicRectangel(scrollbarAbsolutX, scrollbarAbsolutY, scrollbarBreite, scrollbarHeight, true, 1.0F, ((sAttributeListbox)pAttr).pscrollbarSliderBackgroundColor)
+                            .withCornerRadius(pAttr.pCornerRadius)
+                            .paint(sender, e);
+                        }
+                        if (((sAttributeListbox)pAttr).pScrollbarBackgroundPicture != null)
+
+                        {
+                            // hier image aufrufen
+                            Logger.LogMessage("============= sGraphicListbox - PixmapName - ruft cGraphicImage.cs auf 323  = 7 ");
+                            new sGraphicImage(null, ((sAttributeListbox)pAttr).pScrollbarBackgroundPictureName, scrollbarAbsolutX, scrollbarAbsolutY, scrollbarBreite, scrollbarHeight).paint(sender, e);
+
+                        }
+                        else
+                        {
+                            scrollbarHeight = scrollbarHeight / 4 * 3;
+
+                            if (((sAttributeListbox)pAttr).pScrollbarForegroundGradient != null)
+                            {
+                               
+                                // hier nur 3/4 die scrollbar malen , scrollbarHeight
+                                Logger.LogMessage("============= sGraphicListbox.cs - Gradient ist vorhanden ");
+                                Logger.LogMessage("============= sGraphicListbox - Gradient - ruft cGraphicRectangel.cs auf 336  = 5 mit Gradient ");
+                                new sGraphicRectangel(scrollbarAbsolutX, scrollbarAbsolutY, scrollbarBreite, scrollbarHeight, ((sAttributeListbox)pAttr).pScrollbarForegroundGradient)
+                                    .withCornerRadius(pAttr.pCornerRadius)
+                                    .paint(sender, e);
+
+                            }
+                            else
+                            {
+                                if (((sAttributeListbox)pAttr).pscrollbarSliderForegroundColor != null)
+                                {
+                                    Logger.LogMessage("============= sGraphicListbox - Foreground - ruft cGraphicRectangel.cs auf 346  = 7 ");
+                                    new sGraphicRectangel(scrollbarAbsolutX, scrollbarAbsolutY, scrollbarBreite, scrollbarHeight, true, 1.0F, ((sAttributeListbox)pAttr).pscrollbarSliderForegroundColor)
+                                        .withCornerRadius(pAttr.pCornerRadius)
+                                        .paint(sender, e);
+                                }
+                            }
+
+                        }
+
+                        if (((sAttributeListbox)pAttr).pscrollbarSliderBorderColor != null)
+                        {
+                            Logger.LogMessage("============= sGraphicListbox - Border - ruft cGraphicRectangel.cs auf 357  = 4 ");
+                            new sGraphicRectangel(pAttr, false, (float)pAttr.pBorderWidth, ((sAttributeListbox)pAttr).pscrollbarSliderBorderColor)
+                                .withCornerRadius(pAttr.pCornerRadius)
+                                .paint(sender, e);
+                        }
+
+                    }
+                        // -------------------------------------------------Scrollbar Ende -------------------------------------------------------------------------------
+
 
                     if (pAttr.pTransparent)
-                        new sGraphicFont(null, pAttr.pAbsolutX, pAttr.pAbsolutY, entry, fontSize, font, foreground, halign, valign).paint(sender, e);
+                    {
+                        Logger.LogMessage("============= sGraphicListbox - Transparent true - ruft cGraphicFont.cs auf 367  = 7 ");
+                        new sGraphicFont(null, pAttr.pAbsolutX, pAttr.pAbsolutY, entry, fontSize, font, foreground, halign, valign)
+                            .paint(sender, e);
+                    }
                     else
-                        new sGraphicFont(null, pAttr.pAbsolutX, pAttr.pAbsolutY, entry, fontSize, font, foreground, background == null ? new sColor(Color.Black) : background, halign, valign).paint(sender, e);
+                    {
+
+                        //float Radius = pAttr.pCornerRadius;
+                        Logger.LogMessage("============= sGraphicListbox - Transparent false - ruft cGraphicFont.cs auf 372  = 7 ");
+                        new sGraphicFont(null, pAttr.pAbsolutX, pAttr.pAbsolutY, entry, fontSize, font, foreground, background == null ? new sColor(Color.Black) : background, halign, valign)
+                            .paint(sender, e);
+                    }
 
                     if (((sAttributeListbox)pAttr).pPreviewEntries.Count > 1)
                     {
@@ -232,14 +399,28 @@ namespace OpenSkinDesigner.Structures
 
                             // NonSelection Pixmap
                             if (((sAttributeListbox)pAttr).pBackgroundPixmapName != null)
+                            {
+                                Logger.LogMessage("============= sGraphicListbox - BackgroundPixmapName ja -  ruft cGraphicImage.cs auf 393  = 7 ");
                                 new sGraphicImage(null, ((sAttributeListbox)pAttr).pBackgroundPixmapName, pAttr.pAbsolutX, pAttr.pAbsolutY + i * itemHeight, pAttr.pWidth, ((sAttributeListbox)pAttr).pItemHeight).paint(sender, e);
+                            }
+
                             else
+                            {
+                                Logger.LogMessage("============= sGraphicListbox - BackgroundPixmapName nein -  ruft cGraphicRectangel.cs auf 399  = 7 ");
                                 new sGraphicRectangel(pAttr.pAbsolutX, pAttr.pAbsolutY + i * itemHeight, pAttr.pWidth, ((sAttributeListbox)pAttr).pItemHeight, true, 1.0F, ((sAttributeListbox)pAttr).pListboxBackgroundColor).paint(sender, e);
+                            }
 
                             if (pAttr.pTransparent)
+                            {
+                                Logger.LogMessage("============= sGraphicListbox - Transparent true - ruft cGraphicFont.cs auf 405  = 7 ");
                                 new sGraphicFont(null, pAttr.pAbsolutX, pAttr.pAbsolutY + i * itemHeight, entry, fontSize, font, foreground, halign, valign).paint(sender, e);
+                            }
                             else
+                            {
+                                Logger.LogMessage("============= sGraphicListbox - Transparent false - ruft cGraphicFont.cs auf 410  = 7 ");
                                 new sGraphicFont(null, pAttr.pAbsolutX, pAttr.pAbsolutY + i * itemHeight, entry, fontSize, font, foreground, background == null ? new sColor(Color.Black) : background, halign, valign).paint(sender, e);
+                            }
+
                         }
                     }
                 }
@@ -247,9 +428,17 @@ namespace OpenSkinDesigner.Structures
                 {
                     // Selection Pixmap
                     if (((sAttributeListbox)pAttr).pSelectionPixmapName != null)
+                    {
+                        Logger.LogMessage("============= sGraphicListbox - Selection PixmapName ja - ruft cGraphicImage.cs auf 422  = 4 ");
                         new sGraphicImage(pAttr, ((sAttributeListbox)pAttr).pSelectionPixmapName).paint(sender, e);
+                    }
+
                     else
+                    {
+                        Logger.LogMessage("============= sGraphicListbox - SelectionPixmapName nein -  ruft cGraphicRectangel.cs auf 428  = 7 ");
                         new sGraphicRectangel(pAttr.pAbsolutX, pAttr.pAbsolutY, pAttr.pWidth, ((sAttributeListbox)pAttr).pItemHeight, true, 1.0F, ((sAttributeListbox)pAttr).pListboxSelectedBackgroundColor).paint(sender, e);
+                    }
+
                 }
             }
         }

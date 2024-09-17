@@ -72,6 +72,27 @@ namespace OpenSkinDesigner.Structures
 
         public cProperty.eScrollbarMode pScrollbarMode;
 
+        // #########################################
+        public sGradient pItemGradientSelected;
+        //public float pCornerRadius;
+
+        public int pscrollbarWidth;
+        public int pscrollbarSliderBorderWidth;
+        public int pscrollbarOffset;
+
+        public sColor pscrollbarSliderBorderColor;
+        public sColor pscrollbarSliderForegroundColor;
+        public sColor pscrollbarSliderBackgroundColor;
+        public sGradient pScrollbarForegroundGradient;
+
+        public String pScrollbarBackgroundPictureName;
+        public Image pScrollbarBackgroundPicture;
+
+
+        //public Image scrollbarSliderPicture;
+
+        // #########################################
+
         [CategoryAttribute(entryName)]
         public String BackgroundPixmap
         {
@@ -313,6 +334,162 @@ namespace OpenSkinDesigner.Structures
         public sAttributeListbox(sAttribute parent, XmlNode node)
             : base(parent, node)
         {
+            // -----------------------------------------------------------------------------------------------------
+            if (myNode.Attributes["cornerRadius"] != null)
+            {
+                string value = myNode.Attributes["cornerRadius"].Value;
+
+                Logger.LogMessage("%%%%%%%%%%%%%%% cAttributeLabel.cs - cornerRadius ist: " + value);
+
+                float.TryParse(value, out pCornerRadius);
+            }
+
+
+            if (node.Attributes["backgroundColorSelected"] != null)
+                // ------------------ hier wird die farbe geholt wenn sie in der Zeile drin ist ---------------------------------------
+                pListboxSelectedBackgroundColor = (sColor)cDataBase.pColors.get(node.Attributes["backgroundColorSelected"].Value);
+
+
+            else
+                // ------------------ das sollte die Farbe sein die in Windowssytle als default festgelegt ist ------------------------
+                // ------------------ die variablen sind ganz am anfang auch hier festgelegt wenn kein windowsstyle da  ------------------------
+                pListboxSelectedBackgroundColor = (sColor)((sWindowStyle)cDataBase.pWindowstyles.get()).pColors["ListboxSelectedBackground"];
+
+            // ------------------------------ schauen ist Gradient vorhanden --------------------------------------------------
+            if (myNode.Attributes["itemGradientSelected"] != null)
+            {
+                // hier Gradient einlesen und in variablen setzen und Gradient aktivieren
+
+                string value = myNode.Attributes["itemGradientSelected"].Value;
+
+                Logger.LogMessage("///////////////// cAttributeListbox.cs - Die Hintergrundfarbe ItemGradientSelected aus dem XML-Attribut ist: " + value);
+
+                pItemGradientSelected = sGradient.parse(value);
+            }
+            // ________________________________________________________________________________________________________________
+
+
+
+            if (node.Attributes["foregroundColorSelected"] != null)
+
+                pListboxSelectedForegroundColor = (sColor)cDataBase.pColors.get(node.Attributes["foregroundColorSelected"].Value);
+            else
+                pListboxSelectedForegroundColor = (sColor)((sWindowStyle)cDataBase.pWindowstyles.get()).pColors["ListboxSelectedForeground"];
+
+
+            // -------------------------------------------------- Scrollbar ---------------------------------------------------------------------
+            Logger.LogMessage(" ------------------------------- scrollbar ------------------------------------ ");
+
+
+            if (myNode.Attributes["scrollbarMode"] != null)
+            {
+                pScrollbarMode = myNode.Attributes["scrollbarMode"].Value.ToLower() == "showAlways".ToLower() ? cProperty.eScrollbarMode.showAlways :
+                    myNode.Attributes["scrollbarMode"].Value.ToLower() == "showOnDemand".ToLower() ? cProperty.eScrollbarMode.showOnDemand :
+                    cProperty.eScrollbarMode.showNever;
+                Logger.LogMessage("///////////////// cAttributeListbox.cs - pScrollbarMode: " + pScrollbarMode);
+
+            }
+            else
+            {
+                // wenn keine ScrollbarMode in der zeile , auf showNever setzen
+
+                // Wenn kein ScrollbarMode vorhanden ist, auf showNever setzen
+                pScrollbarMode = cProperty.eScrollbarMode.showNever;
+
+                // Optional: Du kannst auch direkt das Attribut in myNode setzen, falls es nicht existiert.
+                var scrollbarModeAttribute = myNode.OwnerDocument.CreateAttribute("scrollbarMode");
+                scrollbarModeAttribute.Value = "showNever";
+                myNode.Attributes.Append(scrollbarModeAttribute);
+
+            }
+
+
+            if (myNode.Attributes["scrollbarWidth"] != null)
+            {
+                string value = myNode.Attributes["scrollbarWidth"].Value;
+
+                Logger.LogMessage("///////////////// cAttributeListbox.cs - scrollbarWidth : " + value);
+
+                int.TryParse(value, out pscrollbarWidth);
+            }
+
+            if (myNode.Attributes["scrollbarOffset"] != null)
+            {
+
+                string value = myNode.Attributes["scrollbarOffset"].Value;
+
+                Logger.LogMessage("///////////////// cAttributeListbox.cs - scrollbarOffset: " + value);
+
+                int.TryParse(value, out pscrollbarOffset);
+            }
+
+            if (myNode.Attributes["scrollbarSliderForegroundColor"] != null)
+            {
+                string value = myNode.Attributes["scrollbarSliderForegroundColor"].Value;
+                Logger.LogMessage("///////////////// cAttributeListbox.cs - scrollbarSliderForegroundColor : " + value);
+                pscrollbarSliderForegroundColor = (sColor)cDataBase.pColors.get(myNode.Attributes["scrollbarSliderForegroundColor"].Value);
+
+            }
+            if (myNode.Attributes["scrollbarSliderBackgroundColor"] != null)
+            {
+                string value = myNode.Attributes["scrollbarSliderBackgroundColor"].Value;
+                Logger.LogMessage("///////////////// cAttributeListbox.cs - scrollbarSliderBackgroundColor : " + value);
+
+                pscrollbarSliderBackgroundColor = (sColor)cDataBase.pColors.get(myNode.Attributes["scrollbarSliderBackgroundColor"].Value);
+
+            }
+            if (myNode.Attributes["scrollbarSliderBorderColor"] != null)
+            {
+                string value = myNode.Attributes["scrollbarSliderBorderColor"].Value;
+                Logger.LogMessage("///////////////// cAttributeListbox.cs - scrollbarSliderBorderColor : " + value);
+
+                pscrollbarSliderBorderColor = (sColor)cDataBase.pColors.get(myNode.Attributes["scrollbarSliderBorderColor"].Value);
+
+            }
+            if (myNode.Attributes["scrollbarSliderBorderWidth"] != null)
+            {
+                string value = myNode.Attributes["scrollbarSliderBorderWidth"].Value;
+
+                Logger.LogMessage("///////////////// cAttributeListbox.cs - scrollbarSliderBorderWidth: " + value);
+
+                int.TryParse(value, out pscrollbarSliderBorderWidth);
+            }
+
+            if (myNode.Attributes["scrollbarForegroundGradient"] != null)
+            {
+                string value = myNode.Attributes["scrollbarForegroundGradient"].Value;
+
+                Logger.LogMessage("///////////////// cAttributeListbox.cs - scrollbarForegroundGradient: " + value);
+
+                pScrollbarForegroundGradient = sGradient.parse(value);
+            }
+
+            if (node.Attributes["scrollbarBackgroundPicture"] != null)
+            {
+                pScrollbarBackgroundPictureName = node.Attributes["scrollbarBackgroundPicture"].Value;
+                try
+                {
+                    pScrollbarBackgroundPicture = Image.FromFile(cDataBase.getPath(pScrollbarBackgroundPictureName));
+                }
+                catch (FileNotFoundException)
+                {
+                    pScrollbarBackgroundPicture = null;
+                }
+            }
+            Logger.LogMessage(" ------------------------------- scrollbar ------------------------------------ ");
+
+            // -------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
 
             if (node.Attributes["backgroundColor"] != null)
                 pListboxBackgroundColor = (sColor)cDataBase.pColors.get(node.Attributes["backgroundColor"].Value);

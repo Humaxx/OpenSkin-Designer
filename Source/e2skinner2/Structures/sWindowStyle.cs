@@ -7,6 +7,8 @@ using System.Drawing;
 using System.Windows.Forms;
 using OpenSkinDesigner.Logic;
 using System.IO;
+using System.Diagnostics;
+
 
 namespace OpenSkinDesigner.Structures
 {
@@ -61,6 +63,15 @@ namespace OpenSkinDesigner.Structures
                 pbpBottomLeftName = bpBottomLeftName;
                 pbpBottomName = bpBottomName;
                 pbpBottomRightName = bpBottomRightName;
+
+                // Hole den Namen der aufrufenden Methode
+                string callerName = new StackTrace().GetFrame(1).GetMethod().Name;
+                // Log-Nachricht erstellen
+                string logMessage = $"============= sWindowsStyle -  () wurde von {callerName} aufgerufen .";
+                // Loggen
+                Logger.LogMessage(logMessage);
+                // Weiter mit der eigentlichen Funktion
+
 
                 // MOD: fixed Unhandled Exception when a file(borderset) not found... And display a message
                 int anz = 0;

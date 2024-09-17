@@ -7,6 +7,7 @@ using System.IO;
 using OpenSkinDesigner.Logic;
 using System.Windows.Forms;
 using OpenSkinDesigner.Frames;
+using System.Diagnostics;
 
 namespace OpenSkinDesigner.Structures
 {
@@ -34,6 +35,15 @@ namespace OpenSkinDesigner.Structures
 
         public sFont(String name, String path, int scale, int size, String fontName, bool replacement, bool isAlias = false)
         {
+            // Hole den Namen der aufrufenden Methode
+            string callerName = new StackTrace().GetFrame(1).GetMethod().Name;
+            // Log-Nachricht erstellen
+            string logMessage = $"============= sFont - 1 () wurde von {callerName} aufgerufen .";
+            // Loggen
+            // Logger.LogMessage(logMessage);
+            // Weiter mit der eigentlichen Funktion
+
+
             String fontPath = cProperties.getProperty("path_fonts");
             String skinPath = cProperties.getProperty("path_skin");
             String skinsPath = cProperties.getProperty("path");

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using OpenSkinDesigner.Logic;
 using System.Drawing;
+using System.Diagnostics;
 
 namespace OpenSkinDesigner.Structures
 {
@@ -20,6 +21,16 @@ namespace OpenSkinDesigner.Structures
 
         public override void paint(object sender, System.Windows.Forms.PaintEventArgs e)
         {
+
+            // Hole den Namen der aufrufenden Methode
+            string callerName = new StackTrace().GetFrame(1).GetMethod().Name;
+            // Log-Nachricht erstellen
+            string logMessage = $"============= sGraphicScreen - paint () wurde von {callerName} aufgerufen .";
+            // Loggen
+            Logger.LogMessage(logMessage);
+            // Weiter mit der eigentlichen Funktion
+
+
             if (cProperties.getPropertyBool("skinned_screen"))
             {
                 new sGraphicRectangel(pAttr, false, (float)1.0, new sColor(Color.Red)).paint(sender, e);
@@ -29,8 +40,8 @@ namespace OpenSkinDesigner.Structures
                 switch (((sAttributeScreen)pAttr).pFlags)
                 {
                     case sAttributeScreen.eFlags.wfNoBorder:
-
-                        new sGraphicRectangel(pAttr, true, (float)1.0, ((sAttributeScreen)pAttr).pBackgroundColor).paint(sender, e);
+                    Logger.LogMessage("============= sGraphicScreen.cs - ruft GraphicRectangel auf 43 - 4 ? ");
+                    new sGraphicRectangel(pAttr, true, (float)1.0, ((sAttributeScreen)pAttr).pBackgroundColor).paint(sender, e);
                         //new sGraphicFont(pAttr, pAttr.pTitle, (float)16, "Arial", pAttr.pLabelForegroundColor).paint(sender, e);
                         break;
 
@@ -41,19 +52,21 @@ namespace OpenSkinDesigner.Structures
                         Int32 tw = (Int32)pAttr.pWidth;
                         Int32 th = (Int32)pAttr.pHeight;
 
-                        /*if (pAttr.pbpTop != null)
-                            ty += (Int32)pAttr.pbpTop.Height; th -= (Int32)pAttr.pbpTop.Height;
+                    /*if (pAttr.pbpTop != null)
+                        ty += (Int32)pAttr.pbpTop.Height; th -= (Int32)pAttr.pbpTop.Height;
 
-                        if (pAttr.pbpBottom != null)
-                            th -= (Int32)pAttr.pbpBottom.Height;
+                    if (pAttr.pbpBottom != null)
+                        th -= (Int32)pAttr.pbpBottom.Height;
 
-                        if (pAttr.pbpLeft != null)
-                            tx += (Int32)pAttr.pbpLeft.Width; tw -= (Int32)pAttr.pbpLeft.Width;
+                    if (pAttr.pbpLeft != null)
+                        tx += (Int32)pAttr.pbpLeft.Width; tw -= (Int32)pAttr.pbpLeft.Width;
 
-                        if (pAttr.pbpRight != null)
-                            tw -= (Int32)pAttr.pbpRight.Width;*/
+                    if (pAttr.pbpRight != null)
+                        tw -= (Int32)pAttr.pbpRight.Width;*/
 
-                        new sGraphicRectangel((Int32)(tx > 0 ? tx : 0), (Int32)(ty > 0 ? ty : 0), (Int32)(tw > 0 ? tw : 0), (Int32)(th > 0 ? th : 0), true, (float)1.0, ((sAttributeScreen)pAttr).pBackgroundColor).paint(sender, e);
+
+                    Logger.LogMessage("============= sGraphicScreen.cs - ruft GraphicRectangel auf 68 - 7 ? ");
+                    new sGraphicRectangel((Int32)(tx > 0 ? tx : 0), (Int32)(ty > 0 ? ty : 0), (Int32)(tw > 0 ? tw : 0), (Int32)(th > 0 ? th : 0), true, (float)1.0, ((sAttributeScreen)pAttr).pBackgroundColor).paint(sender, e);
 
                         //BorderLayout
 
@@ -212,7 +225,8 @@ namespace OpenSkinDesigner.Structures
                         {
                             Int32 Xoff = pAttr.pAbsolutX + ((sAttributeScreen)pAttr).pTitleXOff - (Int32)(((sAttributeScreen)pAttr).pbpLeft != null ? ((sAttributeScreen)pAttr).pbpLeft.Width : 0);
                             Int32 Yoff = pAttr.pAbsolutY + ((sAttributeScreen)pAttr).pTitleYOff - (Int32)(((sAttributeScreen)pAttr).pbpTop != null ? ((sAttributeScreen)pAttr).pbpTop.Height : 0);
-
+                            
+                            Logger.LogMessage("============= sGraphicScreen.cs - ruft GraphicFont auf 229 -  9 ? ");
                             new sGraphicFont(/*pAttr*/null, Xoff, Yoff, ((sAttributeScreen)pAttr).pTitle, ((sAttributeScreen)pAttr).pTitleSize, ((sAttributeScreen)pAttr).pTitleFont, ((sAttributeScreen)pAttr).pLabelForegroundColor, cProperty.eHAlign.Left, cProperty.eVAlign.Center).paint(sender, e);
                         }
                         break;

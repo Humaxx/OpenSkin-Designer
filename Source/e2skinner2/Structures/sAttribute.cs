@@ -10,6 +10,7 @@ using System.Globalization;
 using System.Collections;
 using System.ComponentModel.Design.Serialization;
 using System.Reflection;
+using System.Diagnostics;
 
 namespace OpenSkinDesigner.Structures
 {
@@ -27,9 +28,15 @@ namespace OpenSkinDesigner.Structures
         public static List<String> SkinName = new List<String>();
         public static List<String> SkinValue1 = new List<String>();
         public static List<String> SkinValue2 = new List<String>();
+
+       
+
     }
     public class sAttribute
+
+
     {
+       
         public class PositionConverter : TypeConverter
         {
             public PositionConverter() { }
@@ -37,6 +44,11 @@ namespace OpenSkinDesigner.Structures
             public override bool CanConvertFrom(  ITypeDescriptorContext context,
                                                 Type sourceType)
             {
+
+                // Logging-Code aufrufen
+                Logger.LogMessage("################# cAttribute.cs -- CanConvertFrom");
+
+
                 if (sourceType == typeof(string))
                     return true;
 
@@ -46,6 +58,9 @@ namespace OpenSkinDesigner.Structures
             public override bool CanConvertTo(   ITypeDescriptorContext context,
                                                 Type destinationType)
             {
+                // Logging-Code aufrufen
+                Logger.LogMessage("################# cAttribute.cs -- CanConvertTo");
+
                 if (destinationType == typeof(string))
                     return true;
 
@@ -61,6 +76,9 @@ namespace OpenSkinDesigner.Structures
                               CultureInfo culture, 
                               object value) 
             {
+                // Logging-Code aufrufen
+                Logger.LogMessage("################# cAttribute.cs -- ConvertFrom");
+
                 if (value is string) {
                     try {
                         string s = (string) value;
@@ -94,6 +112,9 @@ namespace OpenSkinDesigner.Structures
                           object value,
                           Type destinationType)
             {
+                // Logging-Code aufrufen
+                Logger.LogMessage("################# cAttribute.cs -- ConvertTo");
+
                 if (culture == null)
                     culture = CultureInfo.CurrentCulture;
                 // LAMESPEC: "The default implementation calls the object's
@@ -121,6 +142,9 @@ namespace OpenSkinDesigner.Structures
             public override object CreateInstance(ITypeDescriptorContext context,
                                IDictionary propertyValues)
             {
+                // Logging-Code aufrufen
+                Logger.LogMessage("################# cAttribute.cs -- CreateInstance");
+
                 Object _x = propertyValues["X"];
                 Object _y = propertyValues["Y"];
                 String X = _x.ToString();
@@ -147,6 +171,9 @@ namespace OpenSkinDesigner.Structures
 
             public override bool GetCreateInstanceSupported(ITypeDescriptorContext context)
             {
+                // Logging-Code aufrufen
+                Logger.LogMessage("################# cAttribute.cs -- GetCreateInstanceSupported ");
+
                 return true;
             }
 
@@ -154,6 +181,9 @@ namespace OpenSkinDesigner.Structures
                                 ITypeDescriptorContext context,
                                 object value, Attribute[] attributes)
             {
+                // Logging-Code aufrufen
+                Logger.LogMessage("################# cAttribute.cs -- PropertyDescriptorCollection ");
+
                 if (value is Position)
                     return TypeDescriptor.GetProperties(value, attributes);
 
@@ -162,6 +192,9 @@ namespace OpenSkinDesigner.Structures
 
             public override bool GetPropertiesSupported(ITypeDescriptorContext context)
             {
+                // Logging-Code aufrufen
+                Logger.LogMessage("################# cAttribute.cs -- GetPropertiesSupported ");
+
                 return true;
             }
 
@@ -224,6 +257,10 @@ namespace OpenSkinDesigner.Structures
         public UInt32 pBorderWidth;
         public sColor pBorderColor;
 
+        
+
+
+
         [CategoryAttribute(entryName),
         DefaultValueAttribute("")]
         public String Name
@@ -252,6 +289,9 @@ namespace OpenSkinDesigner.Structures
         {
             get
             {
+                // Logging-Code aufrufen
+                Logger.LogMessage("################# cAttribute.cs -- Position Relativ ");
+
                 String x = pRelativX.ToString(), y = pRelativY.ToString();
                 //if (pRelativX == (cDataBase.pResolution.getResolution().Xres - pWidth) >> 1 /*1/2*/)
                   //  x = "center";
@@ -338,6 +378,27 @@ namespace OpenSkinDesigner.Structures
                 }
             }
         }
+
+
+        [CategoryAttribute(entryName)]
+        public float CornerRadius
+        {
+            get { return pCornerRadius; }
+            set {
+                pCornerRadius = value;
+
+                if (myNode.Attributes["cornerRadius"] != null)
+                    myNode.Attributes["cornerRadius"].Value = pCornerRadius.ToString();
+                else
+                {
+                    myNode.Attributes.Append(myNode.OwnerDocument.CreateAttribute("cornerRadius"));
+                    myNode.Attributes["cornerRadius"].Value = pCornerRadius.ToString();
+                }
+            }
+        }
+
+
+
 
         [CategoryAttribute(entryName)]
         public bool Transparent
@@ -449,6 +510,7 @@ namespace OpenSkinDesigner.Structures
         }
 
         public XmlNode myNode;
+        internal float pCornerRadius;
 
         public int getValue(String NameOfVariable, bool First)
         {
@@ -478,9 +540,18 @@ namespace OpenSkinDesigner.Structures
 
         private Int32 parseCoord(String coord, Int32 parent, Int32 size = 0)
         {
+            // Hole den Namen der aufrufenden Methode
+            string callerName = new StackTrace().GetFrame(1).GetMethod().Name;
+            // Log-Nachricht erstellen
+            string logMessage = $"Die Funktion sAttribute - parseCoord() wurde von {callerName} aufgerufen.";
+            // Loggen
+            Logger.LogMessage(logMessage);
+            // Weiter mit der eigentlichen Funktion
+
             Int32 n = 0;
             coord = coord.Trim();
             if (coord == "center")
+
             {
                 if (size != 0)
                     n = (parent - size) / 2;
@@ -494,9 +565,11 @@ namespace OpenSkinDesigner.Structures
                 }
                 else if (coord.StartsWith("center"))
                 {
+                    // Logging-Code aufrufen
+                    Logger.LogMessage("sAttribute.cs -- wird c , center abgefragt.");
                     n = parent / 2;
                     coord = coord.Replace("center", "");
-                }                
+                }
                 if (coord.Length != 0)
                 {
                     if (coord.EndsWith("%"))
@@ -509,7 +582,9 @@ namespace OpenSkinDesigner.Structures
                         n = 0;
                     }
                     else
-                        n += Convert.ToInt32(coord);
+                        // Logging-Code aufrufen
+                        //Logger.LogMessage("sAttribute.cs -- hier kommt es zum center fehler");
+                    n += Convert.ToInt32(coord);
                     
                     
                 }
@@ -521,10 +596,19 @@ namespace OpenSkinDesigner.Structures
 
         private void parsePair(String pair, sAttribute parent, out Int32 x, out Int32 y, Int32 w = 0, Int32 h = 0)
         {
+            // Hole den Namen der aufrufenden Methode
+            string callerName = new StackTrace().GetFrame(1).GetMethod().Name;
+            // Log-Nachricht erstellen
+            string logMessage = $"Die Funktion sAttribute - parsePair() wurde von {callerName} aufgerufen.";
+            // Loggen
+            Logger.LogMessage(logMessage);
+            // Weiter mit der eigentlichen Funktion
+
+
             if (pair.Contains(","))
             {
                 String[] coord = pair.Split(new Char[]{','});
-                    x = parseCoord(coord[0], parent.pWidth, w);
+                    x = parseCoord(coord[0], parent.pWidth, w);                //aufruf parseCoord
                     y = parseCoord(coord[1], parent.pHeight, h);
             }
             else
@@ -537,6 +621,16 @@ namespace OpenSkinDesigner.Structures
 
         private void init(sAttribute parent, XmlNode node)
         {
+
+
+            // Hole den Namen der aufrufenden Methode
+            string callerName = new StackTrace().GetFrame(1).GetMethod().Name;
+            // Log-Nachricht erstellen
+            string logMessage = $"Die Funktion sAttribute - init() wurde von {callerName} aufgerufen.";
+            // Loggen
+            Logger.LogMessage(logMessage);
+            // Weiter mit der eigentlichen Funktion
+
             if (node == null)
                 return;
 
@@ -586,6 +680,11 @@ namespace OpenSkinDesigner.Structures
                 pZPosition = Convert.ToInt32(node.Attributes["zPosition"].Value.Trim());
             else
                 pZPosition = 0;
+
+            if (node.Attributes["cornerRadius"] != null)
+                pCornerRadius = Convert.ToInt32(node.Attributes["cornerRadius"].Value.Trim());
+            else
+                pCornerRadius = 0;
 
             if (node.Attributes["transparent"] != null)
                 pTransparent = Convert.ToUInt32(node.Attributes["transparent"].Value.Trim()) != 0;

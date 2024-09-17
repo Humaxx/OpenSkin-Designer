@@ -156,6 +156,7 @@
     <Compile Include="Frames\fWindowstyle.Designer.cs">
       <DependentUpon>fWindowstyle.cs</DependentUpon>
     </Compile>
+    <Compile Include="Logger.cs" />
     <Compile Include="Logic\cCommandQueue.cs" />
     <Compile Include="Logic\cDataBase.cs" />
     <Compile Include="Logic\cDesigner.cs" />
@@ -302,7 +303,9 @@
     <Compile Include="Structures\cConverter.cs" />
     <Compile Include="Structures\cConverterSimplePresets.cs" />
     <Compile Include="Structures\cConverterSimple.cs" />
+    <Compile Include="Structures\cornerRadius.cs" />
     <Compile Include="Structures\cPreviewText.cs" />
+    <Compile Include="Structures\eGradientDirection.cs" />
     <Compile Include="Structures\sAttributeListbox.cs" />
     <Compile Include="Structures\cProperty.cs" />
     <Compile Include="Structures\sAttribute.cs" />
@@ -314,6 +317,7 @@
     <Compile Include="Structures\sColor.cs" />
     <Compile Include="Structures\sElementList.cs" />
     <Compile Include="Structures\sFont.cs" />
+    <Compile Include="Structures\sGradient.cs" />
     <Compile Include="Structures\sGraphicElement.cs" />
     <Compile Include="Structures\sGraphicFont.cs" />
     <Compile Include="Structures\sGraphicImage.cs" />

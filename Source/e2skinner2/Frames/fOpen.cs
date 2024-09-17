@@ -35,6 +35,8 @@ namespace OpenSkinDesigner.Frames
             {
                 foreach (DirectoryInfo di in dis)
                 {
+					// Logging-Code aufrufen
+					// Logger.LogMessage("fOpen.cs -- hier wird die skin.xml geladen in FileInfo ???");
                     FileInfo[] xmlFiles = di.GetFiles("skin.xml");
                     foreach (FileInfo fi in xmlFiles)
                     {

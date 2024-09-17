@@ -8,6 +8,7 @@ using System.Drawing.Text;
 using System.IO;
 using System.Windows.Forms;
 using OpenSkinDesigner.Frames;
+using System.Diagnostics;
 
 namespace OpenSkinDesigner.Structures
 {
@@ -27,6 +28,16 @@ namespace OpenSkinDesigner.Structures
         public sGraphicFont(sAttribute attr, Int32 x, Int32 y, String text, float size, sFont font, sColor color, cProperty.eHAlign hAlignment, cProperty.eVAlign vAlignment)
             : base(attr)
         {
+            // Hole den Namen der aufrufenden Methode
+            string callerName = new StackTrace().GetFrame(1).GetMethod().Name;
+            // Log-Nachricht erstellen
+            string logMessage = $"============= sGraphicFont - erste  - 34- () wurde von {callerName} aufgerufen .";
+            // Loggen
+            Logger.LogMessage(logMessage);
+            // Weiter mit der eigentlichen Funktion
+
+
+
             //pAttr = attr;
 
             pX = x;
@@ -45,6 +56,16 @@ namespace OpenSkinDesigner.Structures
         public sGraphicFont(sAttribute attr, Int32 x, Int32 y, String text, float size, sFont font, sColor color, sColor backColor, cProperty.eHAlign hAlignment, cProperty.eVAlign vAlignment)
             : base(attr)
         {
+            // Hole den Namen der aufrufenden Methode
+            string callerName = new StackTrace().GetFrame(1).GetMethod().Name;
+            // Log-Nachricht erstellen
+            string logMessage = $"============= sGraphicFont - zweiter -62- x y text size font color () wurde von {callerName} aufgerufen .";
+            // Loggen
+            Logger.LogMessage(logMessage);
+            // Weiter mit der eigentlichen Funktion
+
+
+
             //pAttr = attr;
 
             pX = x;
@@ -73,6 +94,15 @@ namespace OpenSkinDesigner.Structures
             String name = "";
             try
             {
+                // Hole den Namen der aufrufenden Methode
+                string callerName = new StackTrace().GetFrame(1).GetMethod().Name;
+                // Log-Nachricht erstellen
+                string logMessage = $"============= sGraphicFont - dritter - 100- paint () wurde von {callerName} aufgerufen .";
+                // Loggen
+                Logger.LogMessage(logMessage);
+                // Weiter mit der eigentlichen Funktion
+
+
                 if (pFont.FontFamily != null) //Only do this if the font is valid
                 {
                     name = pFont.FontFamily.GetName(0);
@@ -100,10 +130,18 @@ namespace OpenSkinDesigner.Structures
 
                 return;
             }
-        
-            if (!pTranparent)
-                new sGraphicRectangel(pAttr, true, 1.0F, pBackColor).paint(sender,e);
 
+            if (!pTranparent)
+            {
+                Logger.LogMessage("============= sGraphicFont.cs - ruft GraphicRectangel auf 4 ? - 136");
+                //Logger.LogMessage("============= sGraphicFont.cs - cornerRadius () " + pAttr.pCornerRadius);
+
+                new sGraphicRectangel(pAttr, true, 1.0F, pBackColor)
+                    //.withCornerRadius(pAttr.pCornerRadius)
+                    .paint(sender, e);
+            }
+
+            
             StringFormat format = new StringFormat();
             
             // Horizontal
@@ -165,6 +203,8 @@ namespace OpenSkinDesigner.Structures
                     else if (pVAlignment == cProperty.eVAlign.Bottom)
                         y += (pHeight - (Int32)StringSize.Height);
                 }
+
+                Logger.LogMessage("============= cGraphicFont.cs - malen DrawString sollte der Text sein --------------------------------- ()" + pText);
 
                 g.DrawString(pText, 
                     font, 

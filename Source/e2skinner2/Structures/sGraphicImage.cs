@@ -8,6 +8,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
+using System.Diagnostics;
 
 namespace OpenSkinDesigner.Structures
 {
@@ -20,6 +21,15 @@ namespace OpenSkinDesigner.Structures
         public sGraphicImage(sAttribute attr, String image, Int32 x, Int32 y, Int32 w, Int32 h)
             : base(attr)
         {
+            // Hole den Namen der aufrufenden Methode
+            string callerName = new StackTrace().GetFrame(1).GetMethod().Name;
+            // Log-Nachricht erstellen
+            string logMessage = $"============= sGraphicImage - String image - oben x y w h () wurde von {callerName} aufgerufen .";
+            // Loggen
+            Logger.LogMessage(logMessage);
+            // Weiter mit der eigentlichen Funktion
+
+
             //Console.WriteLine("sGraphicImage: " + x + ":" + y + " " + w + "x" + h);
             if (cDataBase.getPath(image).ToLower().EndsWith(".svg"))
                 image = cDataBase.getPNGPath(image);
@@ -45,6 +55,15 @@ namespace OpenSkinDesigner.Structures
             : base(attr)
         {
             //Console.WriteLine("sGraphicImage: " + x + ":" + y);
+
+            // Hole den Namen der aufrufenden Methode
+            string callerName = new StackTrace().GetFrame(1).GetMethod().Name;
+            // Log-Nachricht erstellen
+            string logMessage = $"============= sGraphicImage - String image - mitte x y w h () wurde von {callerName} aufgerufen .";
+            // Loggen
+            Logger.LogMessage(logMessage);
+            // Weiter mit der eigentlichen Funktion
+
 
             //pAttr = attr;
             if (image == null || image.Length == 0)
@@ -80,6 +99,16 @@ namespace OpenSkinDesigner.Structures
         {
             //Console.WriteLine("sGraphicImage: ");
 
+            // Hole den Namen der aufrufenden Methode
+            string callerName = new StackTrace().GetFrame(1).GetMethod().Name;
+            // Log-Nachricht erstellen
+            string logMessage = $"============= sGraphicImage - String image - unten x y w h () wurde von {callerName} aufgerufen .";
+            // Loggen
+            Logger.LogMessage(logMessage);
+            // Weiter mit der eigentlichen Funktion
+
+
+
             //pAttr = attr;
             if (image == null || image.Length == 0)
                 return;
@@ -87,6 +116,7 @@ namespace OpenSkinDesigner.Structures
             {
                 
                 pImage = Image.FromFile(cDataBase.getPath(image));
+                Logger.LogMessage("============= sGraphicImage - path unten     : " + pImage);
 
                 // Check correct type
                 if (attr.GetType() == typeof(sAttributePixmap))

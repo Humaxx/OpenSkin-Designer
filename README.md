@@ -71,7 +71,8 @@ created by [Scrounger](https://github.com/Scrounger)
 * sAttributePixmap: element with attribute 'path' -> bug fix if skinPath is part of attribute path
 * converterSimple.xml: MetrixReloaded converters added
 
-### 3.2.3.0 (23.03.2020) by Humax
+### 3.2.3.0 (23.03.2020)
+created by [Humaxx](https://github.com/Humaxx)
 * Undefined colors are added alternatively ('#' is not replaced by 'un')'
 * Added a option how to add undefined colors (with '#' or with 'un')
 * Fixed unhandled exception if a borderset-file isn't existing
@@ -85,18 +86,21 @@ created by [Scrounger](https://github.com/Scrounger)
 * Converter bug fixes: 'TimeshiftService' added to prevent a exception in 'Timeshiftstate'
 * Corrected xhdpicon.png for building in visual studio
 
-### 3.2.3.1 (23.03.2020) by Humax
+### 3.2.3.1 (23.03.2020)
+created by [Humaxx](https://github.com/Humaxx)
 * Added more sources rendered as listbox
 * Fixed unhandled exception if source = null
 
-### 3.2.3.2 (26.03.2020) by Humax
+### 3.2.3.2 (26.03.2020)
+created by [Humaxx](https://github.com/Humaxx)
 * Fixed unhandled exception if no Font is declared or only alias - then using 'lcd.ttf'
 * Fixed unhandled exceptions if a color is missing or declared with 'foregroundColors'
 * Ask to show messageboxes again or not
 * Bugfix: show picon also when a path is set
 * Added option to set 'Fallback-Color', which is used for previewing some text
 
-### 3.2.3.3 (27.03.2020) by Humax
+### 3.2.3.3 (27.03.2020)
+created by [Humaxx](https://github.com/Humaxx)
 * Fixed path not found exception
 * Updated converter.xml
 * Added speedyAXBlueRunningText
@@ -105,7 +109,8 @@ created by [Scrounger](https://github.com/Scrounger)
 * Added a option to enable showing full attribut-list
 * Autocomplete attribut list - max preview set to 15 instead of 5
 
-### 3.2.3.4 (01.04.2020) by Humax
+### 3.2.3.4 (01.04.2020)
+created by [Humaxx](https://github.com/Humaxx)
 * Added render 'ChamaeleonRunningText'
 * If pixmap have a path without specified filename, take random image
 * Bugfix: pixmap path
@@ -113,57 +118,69 @@ created by [Scrounger](https://github.com/Scrounger)
 * Handling all renders containing 'list' as listbox
 * Notifying about unsafed changes
 
-### 3.2.3.5 (14.04.2020) by Humax
+### 3.2.3.5 (14.04.2020)
+created by [Humaxx](https://github.com/Humaxx)
 * Fixed an unhandled exception if image is corrupt
 * Only take 'jpg'; 'jpeg' and 'png' for random picture selection
 
-### 3.2.4.0 (04.06.2020) by Humax
+### 3.2.4.0 (04.06.2020)
+created by [Humaxx](https://github.com/Humaxx)
 * Fixed typos
 * Fixed unhandled exception in 'Color Dialog'
 * Allow only valid characters in Textboxes in 'Color Dialog'
 * Support for language file (CustomLanguage.lng) in 'xml'-diretory
 
-### 3.2.4.1 (05.06.2020) by Humax
+### 3.2.4.1 (05.06.2020)
+created by [Humaxx](https://github.com/Humaxx)
 * Add search for searching text in code editor
 
-### 3.2.4.2 by Humax
+### 3.2.4.2
+created by [Humaxx](https://github.com/Humaxx)
 * Upgraded search-function
 * Added missing translation
 * Fixed text from 'Open-Button' in 'Open-Dialog'
 
-### 3.2.4.3 by Humax
+### 3.2.4.3
+created by [Humaxx](https://github.com/Humaxx)
 * Multilanguage support
 * Added missing translation
 * Settings are now saved
 
-### 3.2.4.4 by Humax
+### 3.2.4.4
+created by [Humaxx](https://github.com/Humaxx)
 * Added missing translation
 
-### 3.2.4.5 by Humax
+### 3.2.4.5
+created by [Humaxx](https://github.com/Humaxx)
 * Displaying the name of the loaded skin.
 
-### 3.2.4.6 by Humax
+### 3.2.4.6
+created by [Humaxx](https://github.com/Humaxx)
 * Fixed unhandled exception when using right-click in designer
 * Add turkish language (thanks to 'audi06)
 * Bugfix: restoring language only searches for first language file in languages-directory
 * Translate existing element-items after changing language
 
-### 3.2.4.7 by Humax
+### 3.2.4.7
+created by [Humaxx](https://github.com/Humaxx)
 * Add albanian language (thanks to 'kqiqi1')
 * Fixed polish language
 * Added missing translations
 * Bugfix: now displaying an error message if a font is not valid
 
-### 3.2.4.8 by Humax
+### 3.2.4.8
+created by [Humaxx](https://github.com/Humaxx)
 * Add options to show notifications about unsafed changes
 * Added missing translations
 * Bugfix: Now also a notification is shown, if colors are changed
 * Added 'ExtEvent' to converter.xml
 
-### 3.2.4.9 by Humax
+### 3.2.4.9
+created by [Humaxx](https://github.com/Humaxx)
 * Using 'delete'-key to delete select element
 
-### 3.2.5.0 by Humax
+### 3.2.5.0
+created by [Humaxx](https://github.com/Humaxx)
 * Added 'experimental delete-mode'
 * Bugfix: Don't delete root-node
 * Bugfix: 'Color-Dialog': changed 'Change'-button to 'Rename'-button
@@ -172,49 +189,84 @@ created by [Scrounger](https://github.com/Scrounger)
 * Changes in 'Color-Dialog' now take immediatly effect without the need to save and reload
 * Nomore saveing and reloading needed if a color is defined two times.
 
-### 3.2.5.1 by Humax
+### 3.2.5.1
+created by [Humaxx](https://github.com/Humaxx)
 * Bugfix: fixed unhandled exception if file (include) was not found
 * Bugfix: fixed unhandled exception if * is used for integer value
 * Added an example in converterSimple.xml for converter-preview-text
 
-### 3.2.5.2 by Humax
+### 3.2.5.2
+created by [Humaxx](https://github.com/Humaxx)
 * Added an option for linewrapping in code-editor
 * Typos
 * Added missing translations
 
-### 3.2.5.3 by Humax
+### 3.2.5.3
+created by [Humaxx](https://github.com/Humaxx)
 * Bugfix: fixed unhandled exception if using delete - key without selected item
 * Bugfix: using delete-key no longer deletes a selected item in propertygrid
-### 3.2.5.4 by Humax
+
+### 3.2.5.4
+created by [Humaxx](https://github.com/Humaxx)
 * Bugfix: Selected Treeviewnode was deleted when pressing any key in Designer-Mode
-### 3.2.5.5 by Humax
+
+### 3.2.5.5
+created by [Humaxx](https://github.com/Humaxx)
 * Add an option to not replace color beginning with '#'
-### 3.2.5.6 by Humax
+
+### 3.2.5.6
+created by [Humaxx](https://github.com/Humaxx)
 Support for QHD (WQHD) and 4K UHD (Ultra HD)
-### 3.2.5.7 by Humax
+
+### 3.2.5.7
+created by [Humaxx](https://github.com/Humaxx)
 * Support for resolution 3200 x 1800
 * Fixed unhandled Exception when borderset has no filename
-### 3.2.5.8 by Humax
+
+### 3.2.5.8
+created by [Humaxx](https://github.com/Humaxx)
 * Fixed unhandled Exception when borderset path has not been specified
-### 3.2.5.9 by Humax
+
+### 3.2.5.9
+created by [Humaxx](https://github.com/Humaxx)
 * Fixed borderset - bug
 * application will be terminated if a '.svg' graphic is used in the 'borderset's
-### 3.2.6.0 by Humax
+
+### 3.2.6.0
+created by [Humaxx](https://github.com/Humaxx)
 * Undo application termination if a '.svg' graphic is used in the 'borderset's
 * If '.svg' graphic is used, the application searches for a corresponding '.png' graphic'
-### 3.2.6.1 by Humax
+
+### 3.2.6.1
+created by [Humaxx](https://github.com/Humaxx)
 * Added an option to hide attribut-list in code-editor
 * Updated language-files
 * After opening the skin, the main node is displayed in the code editor
 * Bugfix: Notification about unsafed changes, hasn't work in every case
-### 3.2.6.2 by Humax
+
+### 3.2.6.2
+created by [Humaxx](https://github.com/Humaxx)
 * Fixed the display of the error message
-### 3.2.6.3 by Humax
+
+### 3.2.6.3
+created by [Humaxx](https://github.com/Humaxx)
 * Fixed typos
 * Added dutch translation --> thanks to 'lk1zhm'
 * Added new 'Converter.xml and 'simpleConverter.xml'
 * Fixed some unhandled Exception when no converter was found
-### 3.2.6.4 by Humax
+
+### 3.2.6.4
+created by [Humaxx](https://github.com/Humaxx)
 * Fixed unhandeld Exception (ignoring 'templates')
-### v3.2.6.5 by Humax"
-* Drawing without color, now using fallback color";
+
+### v3.2.6.5
+created by [Humaxx](https://github.com/Humaxx)
+* Drawing without color, now using fallback color
+
+### v3.2.6.6 by kitte888"
+* Added some new attributes for eLabels like backgroundGradient, cornerRadius
+* Added some new attributes for render listBox like itemCornerRadius
+
+### v3.2.6.7
+created by [Humaxx](https://github.com/Humaxx)
+* Focus remains in the selected property grid value

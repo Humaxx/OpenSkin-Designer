@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Xml;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace OpenSkinDesigner.Structures
 {
@@ -16,6 +17,15 @@ namespace OpenSkinDesigner.Structures
 
         public sElementList(int handle, int parentHandle, TreeNode treenode, XmlNode node)
         {
+            // Hole den Namen der aufrufenden Methode
+            string callerName = new StackTrace().GetFrame(1).GetMethod().Name;
+            // Log-Nachricht erstellen
+            string logMessage = $"============= sElementList - () wurde von {callerName} aufgerufen .";
+            // Loggen
+            // Logger.LogMessage(logMessage);
+            // Weiter mit der eigentlichen Funktion
+
+
             Handle = handle;
             ParentHandle = parentHandle;
             TreeNode = treenode;

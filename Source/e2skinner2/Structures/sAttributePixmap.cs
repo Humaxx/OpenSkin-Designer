@@ -9,6 +9,7 @@ using System.IO;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Threading;
+using System.Diagnostics;
 
 namespace OpenSkinDesigner.Structures
 {
@@ -21,6 +22,9 @@ namespace OpenSkinDesigner.Structures
         public bool pHide = false;
         //public Image pPixmap = null;
 
+        // #####################################
+        //public float pCornerRadius;
+        // #####################################
 
         public cProperty.eAlphatest pAlphatest = cProperty.eAlphatest.off;
 
@@ -93,6 +97,31 @@ namespace OpenSkinDesigner.Structures
         public sAttributePixmap(sAttribute parent, XmlNode node)
             : base(parent, node)
         {
+
+            // Hole den Namen der aufrufenden Methode
+            string callerName = new StackTrace().GetFrame(1).GetMethod().Name;
+            // Log-Nachricht erstellen
+            string logMessage = $"§§§§§§§§§§§§§§ sAttributePixmap - BackgroundColor () wurde von {callerName} aufgerufen .";
+            // Loggen
+            Logger.LogMessage(logMessage);
+            // Weiter mit der eigentlichen Funktion
+
+
+            // ________________________________________________________________________________________________________________
+
+
+            if (myNode.Attributes["cornerRadius"] != null)
+            {
+                string value = myNode.Attributes["cornerRadius"].Value;
+
+                Logger.LogMessage("§§§§§§§§§§§§§§ cAttributePixmap.cs - cornerRadius ist: " + value);
+
+                float.TryParse(value, out pCornerRadius);
+            }
+
+
+
+
             // ePixmap or widget element with attribute 'pixmap' (= path to image)
             if (node.Attributes["pixmap"] != null)
             {

@@ -32,7 +32,14 @@ namespace OpenSkinDesigner.Structures
 
 		public bool pNoWrap = false; /* DONT KNOW IF THIS IS THE CORRECT DEFAULT VALUE */
 
-		[CategoryAttribute(entryName),
+        // ########################################################
+        //public float pCornerRadius;
+        public sGradient pBackgroundGradient;
+
+
+        // ########################################################
+
+        [CategoryAttribute(entryName),
 		 DefaultValueAttribute("")]
 		public String Text
 		{
@@ -277,8 +284,8 @@ namespace OpenSkinDesigner.Structures
 		public sAttributeLabel(sAttribute parent, XmlNode node)
 			: base(parent, node)
 		{
-
-			pWindowStyle = (sWindowStyle)cDataBase.pWindowstyles.get();
+            Logger.LogMessage("%%%%%%%%%%%%%%% cAttributeLabel.cs - Einlesen Anfang ");
+            pWindowStyle = (sWindowStyle)cDataBase.pWindowstyles.get();
 
 			if (myNode.Attributes["text"] != null)
 				pText = myNode.Attributes["text"].Value;
@@ -294,12 +301,41 @@ namespace OpenSkinDesigner.Structures
 				pFontSize = 16;
 			}
 
-			if (myNode.Attributes["backgroundColor"] != null)
+            // ------------------------------ schauen ist Gradient vorhanden --------------------------------------------------
+            if (myNode.Attributes["backgroundGradient"] != null)
+            {
+                // hier Gradient einlesen und in variablen setzen und Gradient aktivieren
+
+                string value = myNode.Attributes["backgroundGradient"].Value;
+
+                Logger.LogMessage("%%%%%%%%%%%%%%% cAttributeLabel.cs - BackgroundGradient ist: " + value);
+
+                pBackgroundGradient = sGradient.parse(value);
+            }
+            // ________________________________________________________________________________________________________________
+
+
+            if (myNode.Attributes["cornerRadius"] != null)
+            {
+                string value = myNode.Attributes["cornerRadius"].Value;
+
+                Logger.LogMessage("%%%%%%%%%%%%%%% cAttributeLabel.cs - cornerRadius ist: " + value);
+
+                float.TryParse(value, out pCornerRadius);
+            }
+
+            // ------------------------ background -----------------------------------------------------------------------------------
+
+
+            if (myNode.Attributes["backgroundColor"] != null)
 				pBackgroundColor = (sColor)cDataBase.pColors.get(myNode.Attributes["backgroundColor"].Value);
 			else if ((sColor)pWindowStyle.pColors["LabelBackground"] != null)
 				pBackgroundColor = (sColor)pWindowStyle.pColors["LabelBackground"];
 			else
 				pBackgroundColor = (sColor)pWindowStyle.pColors["Background"];
+
+
+
 
 			if (myNode.Attributes["foregroundColor"] != null)
 				pForegroundColor = (sColor)cDataBase.pColors.get(myNode.Attributes["foregroundColor"].Value);
@@ -335,6 +371,8 @@ namespace OpenSkinDesigner.Structures
 			if (pText == null || pText.Length > 0)
 				if (Name.Length > 0)
 					pPreviewText = cPreviewText.getText(parent.Name, Name);
-		}
+
+            Logger.LogMessage("%%%%%%%%%%%%%%% cAttributeLabel.cs - Einlesen Ende ");
+        }
 	}
 }
