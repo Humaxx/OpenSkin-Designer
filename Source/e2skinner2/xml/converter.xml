@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!-- Known Datatypes: 'string', 'bool', 'int' -->
-<!-- Converter.xml - Version 3.2.4.8 (01.07.2020) -->
+<!-- Converter.xml - Version 3.2.6.4 (03.10.2023) -->
 <sources>
   <source>
     <name>global.CurrentTime</name>
@@ -16,7 +16,7 @@
     <name>piconCh3</name>
     <name>piconCh4</name>
     <name>piconCh5</name>
-    
+
     <entries>
       <entry name='service_name'   value='BBC World'     type='string'/>
       <entry name='provider'       value='BBC Provider'  type='string'/>
@@ -40,7 +40,8 @@
     <name>session.Event_Now</name>
     <name>parent.ServiceEvent</name>
     <name>TimeShiftService</name>
-    
+    <name>ServiceInfo</name>
+
     <entries>
       <entry name='service_name'    value='Current Program' type='string'/>
       <entry name='event_starttime' value='8000' type='int'/>
@@ -48,9 +49,10 @@
       <entry name='event_remaining' value='600'  type='int'/>
       <entry name='event_duration'  value='600'  type='int'/>
       <entry name='event_progress'  value='80'   type='int'/>
+      <entry name='time_sec' value='-2' type='int'/>
     </entries>
   </source>
-  
+
   <source>
     <name>session.Event_Next</name>
     <entries>
@@ -60,9 +62,10 @@
       <entry name='event_remaining' value='600'  type='int'/>
       <entry name='event_duration'  value='3600'  type='int'/>
       <entry name='event_progress'  value='80'   type='int'/>
+      <entry name='time_sec' value='-2' type='int'/>
     </entries>
   </source>
-  
+
   <source>
     <name>session.FrontendStatus</name>
     <name>Frontend</name>
@@ -82,7 +85,7 @@
       <entry name='tunerusemask'  value='3'   type='int'/>
     </entries>
   </source>
-  
+
   <source>
     <name>ServiceEvent</name>
     <name>Service</name>
@@ -115,6 +118,4 @@
       <entry name='reference'  value='1:0:19:7C:6:85:FFFF0000:0:0:0' type='string'/>
     </entries>
   </source>
-
-      
 </sources>

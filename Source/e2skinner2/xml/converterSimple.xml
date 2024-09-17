@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!-- Known Datatypes: 'string', 'bool', 'int' -->
-<!-- ConverterSimple.xml - Version 3.2.5.1 (28.10.2020) -->
+<!-- ConverterSimple.xml - Version 3.2.6.3 (23.07.2023) -->
 <converterSimple>
   <presets>
     <preset name="channelName" value="Das Erste HD" />
@@ -32,7 +32,7 @@ Horror-Serie · Bewertung 7.4 · USA · 2019
 
 Rick searches for his family after emerging from a coma into a world terrorized by the walking dead. Morgan and Duane, whom he meets along the way, help teach Rick the new rules for survival." />
 
-  <preset name="MetrixReloadedEventEpg_gmepg_Description" value="S11E12 · The Matrimonial Metric · Horror-Serie · Bewertung 7.4 · USA · 2019
+    <preset name="MetrixReloadedEventEpg_gmepg_Description" value="S11E12 · The Matrimonial Metric · Horror-Serie · Bewertung 7.4 · USA · 2019
 Rick searches for his family after emerging from a coma into a world terrorized by the walking dead. Morgan and Duane, whom he meets along the way, help teach Rick the new rules for survival." />
   </presets>
 
@@ -48,19 +48,20 @@ Rick searches for his family after emerging from a coma into a world terrorized 
     <entry source="Event" converterName="EventName" converterParameter="ExtendedDescription" value="#programDescription#"/>
     <entry source="session.Event_Now" converterName="EventName" converterParameter="ExtendedDescription" value="#programDescription#"/>
     <entry source="session.Event_Next" converterName="EventName" converterParameter="ExtendedDescription" value="#programDescription#"/>
-    
+
     <entry source="session.Event_Now" converterName="EventName" converterParameter="Name" value="#programTitle#"/>
     <entry source="session.Event_Next" converterName="EventName" converterParameter="Name" value="#programTitle_Next#"/>
 
     <!-- Converter ServiceName -->
     <entry source="Service" converterName="ServiceName" converterParameter="Name" value="#channelName#"/>
+    <entry source="parent.Service" converterName="ServiceName" converterParameter="Name" value="#channelName#"/>
 
     <!-- Converter MovieInfo -->
     <entry source="Service" converterName="MovieInfo" converterParameter="MetaDescription" value="#programSubtitle#"/>
     <entry source="Service" converterName="MovieInfo" converterParameter="ShortDescription" value="#programSubtitle#"/>
     <entry source="Service" converterName="MovieInfo" converterParameter="FileSize" value="12.9 GB"/>
     <entry source="Service" converterName="MovieInfo" converterParameter="RecordServiceName" value="#channelName#"/>
-    
+
     <!-- Skin: MetrixReloaded ########################################################################################################### -->
     <!-- SystemInfos-->
     <entry source="Title" converterName="MetrixReloadedTextTranslator" converterParameter="temperature" value="Temperatur:"/>
@@ -88,7 +89,7 @@ Rick searches for his family after emerging from a coma into a world terrorized 
     <entry source="session.extEvent_Now" converterName="MetrixReloadedExtEventEPG" converterParameter="PowerDescription[true][Title]" value="#programTitle#"/>
     <entry source="session.extEvent_Next" converterName="MetrixReloadedExtEventEPG" converterParameter="PowerDescription[true][Title]" value="#programTitle#"/>
     <entry source="session.extEvent_Next" converterName="MetrixReloadedExtEventEPG" converterParameter="PowerDescription[false][Title]" value="#programTitle#"/>
-    
+
 
     <entry source="session.extEvent_Now" converterName="MetrixReloadedExtEventEPG" converterParameter="PowerDescription[true][EpisodeNum(Staffel [s], Episode [e]\,)Subtitle(10)Genre(\nGenre:\t)Category(\nKategorie:\t)Rating(\nBewertung:\t)Year(\nJahr:\t)Country(\nLand:\t)]" value="#MetrixReloadedEventEpg_secondInfoBar_Additional#"/>
     <entry source="session.extEvent_Now" converterName="MetrixReloadedExtEventEPG" converterParameter="PowerDescription[false][EpisodeNum(Staffel [s], Episode [e]\,)Subtitle(10)Genre(\nGenre:\t)Category(\nKategorie:\t)Rating(\nBewertung:\t)Year(\nJahr:\t)Country(\nLand:\t)]" value="#MetrixReloadedEventEpg_secondInfoBar_Additional#"/>
@@ -99,13 +100,13 @@ Rick searches for his family after emerging from a coma into a world terrorized 
     <entry source="session.extEvent_Now" converterName="MetrixReloadedExtEventEPG" converterParameter="PowerDescription[false][Genre(\nGenre:\t)Category(\nKategorie:\t)Rating(\nBewertung:\t)Year(\nJahr:\t)Country(\nLand:\t)]" value="#MetrixReloadedEventEpg_secondInfoBar_Additional2#"/>
     <entry source="session.extEvent_Next" converterName="MetrixReloadedExtEventEPG" converterParameter="PowerDescription[true][Genre(\nGenre:\t)Category(\nKategorie:\t)Rating(\nBewertung:\t)Year(\nJahr:\t)Country(\nLand:\t)]" value="#MetrixReloadedEventEpg_secondInfoBar_Additional2#"/>
     <entry source="session.extEvent_Next" converterName="MetrixReloadedExtEventEPG" converterParameter="PowerDescription[false][Genre(\nGenre:\t)Category(\nKategorie:\t)Rating(\nBewertung:\t)Year(\nJahr:\t)Country(\nLand:\t)]" value="#MetrixReloadedEventEpg_secondInfoBar_Additional2#"/>
-    
+
     <entry source="session.extEvent_Now" converterName="MetrixReloadedExtEventEPG" converterParameter="PowerDescription[EpisodeNum(Staffel [s], Episode [e]\,)Subtitle(10)]" value="Staffel 11, Episode 12 · The Matrimonial Metric"/>
     <entry source="session.extEvent_Next" converterName="MetrixReloadedExtEventEPG" converterParameter="PowerDescription[EpisodeNum(Staffel [s], Episode [e]\,)Subtitle(10)]" value="Staffel 11, Episode 12 · The Matrimonial Metric"/>
 
     <entry source="session.extEvent_Now" converterName="MetrixReloadedExtEventEPG" converterParameter="PowerDescription[EpisodeNum(Staffel [s], Episode [e]\,)Subtitle(10)ExtendedDescription(\n\n)]" value="#MetrixReloadedEventEpg_secondInfoBar_Subtitle_Description#"/>
     <entry source="session.extEvent_Next" converterName="MetrixReloadedExtEventEPG" converterParameter="PowerDescription[EpisodeNum(Staffel [s], Episode [e]\,)Subtitle(10)ExtendedDescription(\n\n)]" value="#MetrixReloadedEventEpg_secondInfoBar_Subtitle_Description#"/>
-    
+
     <entry source="ServiceEvent" converterName="MetrixReloadedExtEventEPG" converterParameter="PowerDescription[EpisodeNum(S[ss]E[ee]\,)Subtitle(10)Genre(\n)Rating(\,Bewertung )Country(\,)Year(\,)ExtendedDescription(\n\n)]" value="#MetrixReloadedEventEpg_channelSelection_Description#"/>
     <entry source="ExtEvent" converterName="MetrixReloadedExtEventEPG" converterParameter="PowerDescription[EpisodeNum(S[ss]E[ee]\,)Subtitle(10)Genre(\n)Rating(\,Bewertung )Country(\,)Year(\,)ExtendedDescription(\n\n)]" value="#MetrixReloadedEventEpg_channelSelection_Description#"/>
     <entry source="ExtEvent" converterName="MetrixReloadedExtEventEPG" converterParameter="PowerDescription[Title]" value="#programTitle#"/>
@@ -114,7 +115,7 @@ Rick searches for his family after emerging from a coma into a world terrorized 
     <entry source="ExtEvent" converterName="MetrixReloadedExtEventEPG" converterParameter="PowerDescription[true][EpisodeNum(S[ss]E[ee]\,)Subtitle(10)Genre(\,)Rating(\,Bewertung )Country(\,)Year(\,)ExtendedDescription(\n)]" value="#MetrixReloadedEventEpg_gmepg_Description#"/>
     <entry source="ExtEvent" converterName="MetrixReloadedExtEventEPG" converterParameter="PowerDescription[false][EpisodeNum(S[ss]E[ee]\,)Subtitle(10)Genre(\,)Rating(\,Bewertung )Country(\,)Year(\,)ExtendedDescription(\n)]" value="#MetrixReloadedEventEpg_gmepg_Description#"/>
     <entry source="ExtEvent" converterName="MetrixReloadedExtEventEPG" converterParameter="PowerDescription[EpisodeNum(S[ss]E[ee]\,)Subtitle(10)Genre(\,)Rating(\,Bewertung )Country(\,)Year(\,)ExtendedDescription(\n\n)]" value="#MetrixReloadedEventEpg_gmepg_Description#"/>
-    
+
     <!-- Converter MetrixReloadedVersion -->
     <entry source="Title" converterName="MetrixReloadedVersion" converterParameter="" value="Version: 0.7.0"/>
 
