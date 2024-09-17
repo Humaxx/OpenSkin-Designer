@@ -227,7 +227,7 @@ namespace OpenSkinDesigner.Frames
                  "v3.2.6.6 by kitte888" + Environment.NewLine +
                  "- Added some new attributes for eLabels like backgroundGradient, cornerRadius" + Environment.NewLine +
                  "- Added some new attributes for render listBox like itemCornerRadius" + Environment.NewLine + Environment.NewLine +
-                 "v3.2.6.7 by Humax" + Environment.NewLine +
+                 "v3.3.0.0 by Humax" + Environment.NewLine +
                  "- Focus remains in the selected propertygrid";
         }
 

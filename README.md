@@ -269,6 +269,6 @@ created by [Humaxx](https://github.com/Humaxx)
 * Added some new attributes for eLabels like backgroundGradient, cornerRadius
 * Added some new attributes for render listBox like itemCornerRadius
 
-### v3.2.6.7
+### v3.3.0.0
 created by [Humaxx](https://github.com/Humaxx)
 * Focus remains in the selected property grid value
