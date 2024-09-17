@@ -40,7 +40,7 @@ namespace OpenSkinDesigner.Frames
                 "- Add 'ShortFullDate' converter" + Environment.NewLine +
                 "- Fix setting colors" + Environment.NewLine +
                 "- Fix conditional labels" + Environment.NewLine + Environment.NewLine +
-                "v3.1.0.1 by Humax" + Environment.NewLine +
+                "v3.1.0.1 by Humaxx" + Environment.NewLine +
                 "- Swapped tooltips 'Undo' and 'Delete Element' " + Environment.NewLine +
                 "- 'Open Project' - dialog adapted" + Environment.NewLine +
                 "- Bug fix - Zooming is only possible if a skin was loaded" + Environment.NewLine +
@@ -56,7 +56,7 @@ namespace OpenSkinDesigner.Frames
                 "- If a color has been defined twice, you can now decide if the color should be removed (recommended)." + Environment.NewLine +
                 "  This will save the skin and reload it. Otherwise, the color will be removed if you save it manually," + Environment.NewLine +
                 "  but in this case the color will be preserved in the Treeview until you reload!" + Environment.NewLine + Environment.NewLine +
-                "v3.1.0.2 by Humax" + Environment.NewLine +
+                "v3.1.0.2 by Humaxx" + Environment.NewLine +
                 "- Fixed font preview (a text box cannot display the font correctly, a picturebox can!)" + Environment.NewLine +
                 "- Fixed unhandled exception when trying to save in Codeeditor when no line is selected" + Environment.NewLine +
                 "- Fixed a bug that prevented searching for the specified fonts in the skin folder." + Environment.NewLine +
@@ -99,7 +99,7 @@ namespace OpenSkinDesigner.Frames
                 "- sAttributePixmap: element with attribute 'path'->bug fix if skinPath is part of attribute path" + Environment.NewLine +
                 "- converterSimple.xml: MetrixReloaded converters added" + Environment.NewLine +
                 "- ListBox: Show entries added" + Environment.NewLine + Environment.NewLine +
-                "v3.2.3.0 by Humax" + Environment.NewLine +
+                "v3.2.3.0 by Humaxx" + Environment.NewLine +
                 "- Undefined colors are added alternatively ('#' is not replaced by 'un')'" + Environment.NewLine +
                 "- Added a option how to add undefined colors (with '#' or with 'un')" + Environment.NewLine +
                 "- Fixed unhandled exception if a borderset-file isn't existing" + Environment.NewLine +
@@ -111,123 +111,123 @@ namespace OpenSkinDesigner.Frames
                 "- Editor: background color changed for better contrast" + Environment.NewLine +
                 "- Added VTi-Fonts" + Environment.NewLine +
                 "- Converter bug fixes: 'TimeshiftService' added to prevent a exception in 'Timeshiftstate'" + Environment.NewLine + Environment.NewLine +
-                "v3.2.3.1 by Humax" + Environment.NewLine +
+                "v3.2.3.1 by Humaxx" + Environment.NewLine +
                 "- More sources rendered as listbox" + Environment.NewLine +
                 "- Fix unhandled exception when Source = null" + Environment.NewLine + Environment.NewLine +
-                "v3.2.3.2 by Humax" + Environment.NewLine +
+                "v3.2.3.2 by Humaxx" + Environment.NewLine +
                 "- Fixed unhandled exception if no Font is declared or only alias - then using 'lcd.ttf'" + Environment.NewLine +
                 "- Fixed unhandled exceptions if a color is missing or declared with 'foregroundColors'" + Environment.NewLine +
                 "- Ask to show messageboxes again or not" + Environment.NewLine +
                 "- Added option to set 'Fallback-Color', which is used for previewing some text" + Environment.NewLine +
                 "- Bugfix: show picon also when a path is set" + Environment.NewLine + Environment.NewLine +
-                "v3.2.3.3 by Humax" + Environment.NewLine +
+                "v3.2.3.3 by Humaxx" + Environment.NewLine +
                 "- Fixed path not found exception" + Environment.NewLine +
                 "- Updated converter.xml" + Environment.NewLine +
                 "- Added some entries to attribut-list like 'foregroundColors' 'options' 'pixmaps' and more" + Environment.NewLine +
                 "- Added a option to enable showing full attribut-list" + Environment.NewLine +
                 "- Autocomplete attribut list - max preview set to 15 instead of 5" + Environment.NewLine +
                 "- Added render 'speedyAXBlueRunningText'" + Environment.NewLine + Environment.NewLine +
-                "v3.2.3.4 by Humax" + Environment.NewLine +
+                "v3.2.3.4 by Humaxx" + Environment.NewLine +
                 "- Added render 'ChamaeleonRunningText'" + Environment.NewLine +
                 "- Bugfix: pixmap path" + Environment.NewLine +
                 "- Added all renders containing 'runningtext'" + Environment.NewLine +
                 "- Handling all renders containing 'list' as listbox" + Environment.NewLine +
                 "- Notifying about unsafed changes" + Environment.NewLine +
                 "- If pixmap have a path without specified filename, take random image" + Environment.NewLine + Environment.NewLine +
-                "v3.2.3.5 by Humax" + Environment.NewLine +
+                "v3.2.3.5 by Humaxx" + Environment.NewLine +
                 "- Fixed an unhandled exception if image is corrupt" + Environment.NewLine +
                 "- Only take 'jpg'; 'jpeg' and 'png' for random image selection" + Environment.NewLine + Environment.NewLine +
-                "v3.2.4.0 by Humax" + Environment.NewLine +
+                "v3.2.4.0 by Humaxx" + Environment.NewLine +
                 "- Fixed Typos" + Environment.NewLine +
                 "- Fixed unhandled exception in 'Color Dialog'" + Environment.NewLine +
                 "- Allow only valid characters in Textboxes in 'Color Dialog'" + Environment.NewLine +
                 "- Support for language file" + Environment.NewLine + Environment.NewLine +
-                "v3.2.4.1 by Humax" + Environment.NewLine +
+                "v3.2.4.1 by Humaxx" + Environment.NewLine +
                 "- Add search for searching text in code editor" + Environment.NewLine + Environment.NewLine +
-                "v3.2.4.2 by Humax" + Environment.NewLine +
+                "v3.2.4.2 by Humaxx" + Environment.NewLine +
                 "- Upgraded search-function" + Environment.NewLine +
                 "- Added missing translation" + Environment.NewLine +
                 "- Fixed text from 'Open-Button' in 'Open-Dialog'" + Environment.NewLine + Environment.NewLine +
-                "v3.2.4.3 by Humax" + Environment.NewLine +
+                "v3.2.4.3 by Humaxx" + Environment.NewLine +
                 "- Added missing translations" + Environment.NewLine +
                 "- Settings are now saved" + Environment.NewLine +
                 "- Multilanguage support" + Environment.NewLine + Environment.NewLine +
-                "v3.2.4.4 by Humax" + Environment.NewLine +
+                "v3.2.4.4 by Humaxx" + Environment.NewLine +
                 "- Added missing translations" + Environment.NewLine + Environment.NewLine +
-                "v3.2.4.5 by Humax" + Environment.NewLine +
+                "v3.2.4.5 by Humaxx" + Environment.NewLine +
                 "- Display skin-name" + Environment.NewLine + Environment.NewLine +
-                "v3.2.4.6 by Humax" + Environment.NewLine +
+                "v3.2.4.6 by Humaxx" + Environment.NewLine +
                 "- Add turkish language (thanks to 'audi06')" + Environment.NewLine +
                 "- Bugfix: restoring language only searches for first language file in languages-directory" + Environment.NewLine +
                 "- Translate existing element-items after changing language" + Environment.NewLine +
                 "- Fixed unhandled exception when using right-click in designer" + Environment.NewLine + Environment.NewLine +
-                "v3.2.4.7 by Humax" + Environment.NewLine +
+                "v3.2.4.7 by Humaxx" + Environment.NewLine +
                 "- Fixed polish language" + Environment.NewLine +
                 "- Added missing translations" + Environment.NewLine +
                 "- Bugfix: now displaying an error message if a font is not valid" + Environment.NewLine +
                 "- Add albanian language (thanks to 'kqiqi1')" + Environment.NewLine + Environment.NewLine +
-                "v3.2.4.8 by Humax" + Environment.NewLine +
+                "v3.2.4.8 by Humaxx" + Environment.NewLine +
                 "- Added missing translations" + Environment.NewLine +
                 "- Added 'ExtEvent' to converter.xml" + Environment.NewLine +
                 "- Bugfix: Now also a notification is shown, if colors are changed" + Environment.NewLine +
                 "- Add options to show notifications about unsafed changes" + Environment.NewLine + Environment.NewLine +
-                "v3.2.4.9 by Humax" + Environment.NewLine +
+                "v3.2.4.9 by Humaxx" + Environment.NewLine +
                 "- Using 'delete'-key to delete selected element" + Environment.NewLine + Environment.NewLine +
-                "v3.2.5.0 by Humax" + Environment.NewLine +
+                "v3.2.5.0 by Humaxx" + Environment.NewLine +
                 "- Bugfix: Dont delete root-node" + Environment.NewLine +
                 "- Bugfix: 'Color-Dialog': changed 'Change' - button to 'Rename' - button" + Environment.NewLine +
                 "- Bugfix: 'Color-Dialog': changing a color now triggers unsafed-changes - notification" + Environment.NewLine +
                 "- Closing 'Color-Dialog' instead of hiding" + Environment.NewLine +
                 "- Nomore saveing and reloading needed if a color is defined two times." + Environment.NewLine +
                 "- Added 'experimental delete-mode'" + Environment.NewLine + Environment.NewLine +
-                "v3.2.5.1 by Humax" + Environment.NewLine +
+                "v3.2.5.1 by Humaxx" + Environment.NewLine +
                  "- Bugfix: fixed unhandled exception if file (include) was not found" + Environment.NewLine +
                  "- Bugfix: fixed unhandled exception if * is used for integer value" + Environment.NewLine +
                  "- Added an example in converterSimple.xml for converter-preview-text" + Environment.NewLine + Environment.NewLine +
-                 "v3.2.5.2 by Humax" + Environment.NewLine +
+                 "v3.2.5.2 by Humaxx" + Environment.NewLine +
                  "- Typos" + Environment.NewLine +
                  "- Added missing translations" + Environment.NewLine +
                  "- Added an option for linewrapping in code - editor" + Environment.NewLine + Environment.NewLine +
-                 "v3.2.5.3 by Humax" + Environment.NewLine +
+                 "v3.2.5.3 by Humaxx" + Environment.NewLine +
                  "- Bugfix: fixed unhandled exception if using delete - key without selected item" + Environment.NewLine +
                  "- Bugfix: using delete-key no longer deletes a selected item in propertygrid" + Environment.NewLine + Environment.NewLine +
-                 "v3.2.5.4 by Humax" + Environment.NewLine +
+                 "v3.2.5.4 by Humaxx" + Environment.NewLine +
                  "- Bugfix: Selected Treeviewnode was deleted when pressing any key in Designer - Mode" + Environment.NewLine + Environment.NewLine +
-                 "v3.2.5.5 by Humax" + Environment.NewLine +
+                 "v3.2.5.5 by Humaxx" + Environment.NewLine +
                  "- Add an option to not replace color beginning with '#'" + Environment.NewLine + Environment.NewLine +
-                 "v3.2.5.6 by Humax" + Environment.NewLine +
+                 "v3.2.5.6 by Humaxx" + Environment.NewLine +
                  "- Support for QHD (WQHD) and 4K UHD (Ultra HD)" + Environment.NewLine + Environment.NewLine +
-                 "v3.2.5.7 by Humax" + Environment.NewLine +
+                 "v3.2.5.7 by Humaxx" + Environment.NewLine +
                  "- Support for resolution 3200 x 1800" + Environment.NewLine +
                  "- Fixed unhandled Exception when borderset has no filename" + Environment.NewLine + Environment.NewLine +
-                 "v3.2.5.8 by Humax" + Environment.NewLine +
+                 "v3.2.5.8 by Humaxx" + Environment.NewLine +
                  "- Fixed unhandled Exception when borderset path has not been specified" + Environment.NewLine + Environment.NewLine +
-                 "v3.2.5.9 by Humax" + Environment.NewLine +
+                 "v3.2.5.9 by Humaxx" + Environment.NewLine +
                  "- Fixed borderset - bug" + Environment.NewLine +
                  "- Application will be terminated if a '.svg' graphic is used in the 'borderset's" + Environment.NewLine + Environment.NewLine +
-                  "v3.2.6.0 by Humax" + Environment.NewLine +
+                  "v3.2.6.0 by Humaxx" + Environment.NewLine +
                  "- Undo application termination if a '.svg' graphic is used in the 'borderset's" + Environment.NewLine +
                  "- If '.svg' graphic is used, the application searches for a corresponding '.png' graphic" + Environment.NewLine + Environment.NewLine +
-                 "v3.2.6.1 by Humax" + Environment.NewLine +
+                 "v3.2.6.1 by Humaxx" + Environment.NewLine +
                  "- Added an option to hide attribut-list in code-editor" + Environment.NewLine +
                  "- Updated language-files" + Environment.NewLine +
                  "- After opening the skin, the main node is displayed in the code editor" + Environment.NewLine +
                  "- Bugfix: Notification about unsafed changes, hasn't work in every case" + Environment.NewLine + Environment.NewLine +
-                 "v3.2.6.2 by Humax" + Environment.NewLine +
+                 "v3.2.6.2 by Humaxx" + Environment.NewLine +
                  "- Fixed the display of the error message" + Environment.NewLine + Environment.NewLine +
-                 "v3.2.6.3 by Humax" + Environment.NewLine +
+                 "v3.2.6.3 by Humaxx" + Environment.NewLine +
                  "- Fixed typos" + Environment.NewLine +
                  "- Added dutch translation --> thanks to 'lk1zhm'" + Environment.NewLine +
                  "- Added new 'Converter.xml and 'simpleConverter.xml'" + Environment.NewLine +
                  "- Fixed some unhandled Exception when no converter was found" + Environment.NewLine + Environment.NewLine +
-                 "v3.2.6.4 by Humax" + Environment.NewLine +
+                 "v3.2.6.4 by Humaxx" + Environment.NewLine +
                  "- Fixed unhandled Exception (ignoring 'templates')" + Environment.NewLine + Environment.NewLine +
-                 "v3.2.6.5 by Humax" + Environment.NewLine +
+                 "v3.2.6.5 by Humaxx" + Environment.NewLine +
                  "- Fixed unhandled Exception (drawing without color, now using fallback color)" + Environment.NewLine + Environment.NewLine +
                  "v3.2.6.6 by kitte888" + Environment.NewLine +
                  "- Added some new attributes for eLabels like backgroundGradient, cornerRadius" + Environment.NewLine +
                  "- Added some new attributes for render listBox like itemCornerRadius" + Environment.NewLine + Environment.NewLine +
-                 "v3.3.0.0 by Humax" + Environment.NewLine +
+                 "v3.3.0.0 by Humaxx" + Environment.NewLine +
                  "- Focus remains in the selected propertygrid";
         }
 
